@@ -41,9 +41,12 @@ function Home(){
                 <h1 className='s3-h1'>O NAS</h1>
                 <img className='s3-i1' src="/images/_MG_0131.JPG" alt="" />
                 <img className='s3-i2' src="/images/_MG_0368.JPG" alt="" />
-                <div className='s3-text'>
-                    <h2 className='s3-h2'>Nasza historia</h2>
-                    <p className='s3-p1'>Tutaj mozecie sobie dac jaki opis jakies informacje o was samych. Nadal prosze o wyjasnienie jak z dzinsow sie robi torebki. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id facilisis nunc. Quisque dignissim metus a lorem lobortis egestas. Vestibulum vehicula rhoncus enim pulvinar molestie. Vestibulum mauris elit, tempus vel accumsan quis, ultrices id dui. Proin facilisis libero nec nulla consectetur, non interdum dolor fermentum. Quisque in interdum magna. Curabitur fringilla ante id sapien interdum, a dictum elit cursus. Pellentesque nec tortor sed justo pulvinar malesuada. Curabitur vestibulum erat risus, sed congue nulla suscipit quis. Maecenas scelerisque nisl non sapien interdum, at eleifend eros malesuada.</p>
+                <div className='s3-container'>
+                    <div className='s3-text'>
+                        <h2 className='s3-h2'>Nasza historia</h2>
+                        <p className='s3-p1'>Tutaj mozecie sobie dac jaki opis jakies informacje o was samych. Nadal prosze o wyjasnienie jak z dzinsow sie robi torebki. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id facilisis nunc. Quisque dignissim </p>
+                    </div>
+                    <button className='s3-button'>Dowiedz się więcej</button>
                 </div>
             </div>
            </section>
@@ -82,7 +85,7 @@ function Home(){
                         <p>Podaj swój e-mail</p>
                     </div>
                     <form action="">
-                        <input type="email" name="email" id="email" placeholder="" />
+                        <input type="email" name="email" id="email" autoComplete='off' placeholder="" />
                         <button type="submit">SUBSKRYBUJ</button>
                     </form>
                 </div>

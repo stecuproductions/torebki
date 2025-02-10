@@ -154,6 +154,7 @@ body{
         font-size: var(--strandard-heading-font-size-desktop);
     }
     .s1-text{
+        gap:50px;
         font-size: var(--standard-font-size-desktop);
     }
 }
@@ -303,15 +304,18 @@ body{
     width: 100%;
     font-family: var(--standard-font);
     font-weight: 400;
-    padding: 10px;
+    margin-top: 50px;
+    padding-left: 30px;
+    margin-bottom: 20px;
 }
 .s3-i1{
-    width: 45%;
+    width: 40%;
     align-self: center;
 }
 .s3-i2{
-    width: 40%;
+    width: 30%;
     align-self: center;
+    min-width: 200px;
 }
 .s3-text{
     padding: 20px;
@@ -323,12 +327,33 @@ body{
     font-family: var(--secondary-font);
 }
 .s3-p1{
+    font-family: var(--standard-font);
     line-height: 1.3;
-    font-size: calc(var(--standard-font-size-mobile)-2px);
-}
-.s3-h2{
     font-size: calc(var(--standard-font-size-mobile) + 4px);
-    font-weight: 500;
+    font-weight: 400;;
+}
+
+.s3-h2{
+    font-size: calc(var(--standard-font-size-mobile));
+    font-weight: 200;
+}
+.s3-container{
+    display: flex;
+    flex-direction: column;
+}
+.s3-button{
+    width: auto;
+    align-self: center;
+    font-family: var(--secondary-font);
+    color:white;
+    background-color: transparent;
+    border: solid 1px white;
+    padding: 20px 5px 20px 5px;
+    transition: all 0.3s ease;
+    &:hover{
+        background-color: white;
+        color: black;
+    }
 }
 
 @media(min-width: 768px){
@@ -340,13 +365,23 @@ body{
 
     .s3-h1{
         align-self: start;
+        font-size: var(--standard-heading-font-size-tablet);
+    }
+    .s3-h2{
+        font-size: calc(var(--standard-font-size-tablet) + 2px);
+    }
+    .s3-p1{
+        font-size: calc(var(--standard-font-size-tablet) + 4px);
     }
     .s3-i1{
         grid-column: 1;
         grid-row: 2;
         margin-top: 0;
-        width:30%;
-        justify-self: center;
+        min-width: 350px;
+        width: clamp(350px 100%, 500px);
+        justify-self: start;
+        padding-left: 30px;
+
     }
     .s3-i2{
         grid-column: 2;
@@ -360,8 +395,29 @@ body{
     .s3-text{
         width: 90%;
         max-width: 600px;
+        grid-column: 2;
+        grid-row: 2;
+    }
+    .s3-button{
+        grid-column: 2;
+        grid-row: 2;
+        align-self: flex-start;
+        margin-left: 20px;
     }
     
+    
+}
+
+@media (min-width:1439px) {
+    .s3-h1{
+        font-size: var(--strandard-heading-font-size-desktop);
+    }
+    .s3-h2{
+        font-size: calc(var(--standard-font-size-desktop) + 2px);
+    }
+    .s3-p1{
+        font-size: calc(var(--standard-font-size-desktop) + 4px);
+    }
 }
 
 
@@ -382,6 +438,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 0px;
 }
 .s4-contact{
     display: flex;
@@ -443,6 +500,9 @@ body{
     background-color: transparent;
     outline: none;
     text-align: left;
+    padding-left: 5px;
+    font-size: var(--standard-font-size-mobile);
+    font-family: var(--secondary-font);
 }
 
 
@@ -519,6 +579,7 @@ body{
         width: 40%;
         margin-left: 10px;
         max-width: 450px;
+        font-size: var(--standard-font-size-tablet);
     }
     
     
@@ -540,6 +601,7 @@ body{
     .s4-newsletter-text-header{
         font-size: calc(var(--standard-font-size-tablet) + 10px);
     }
+
     
 }
 
@@ -555,6 +617,9 @@ body{
     }
     .s4-newsletter-text-header{
         font-size: calc(var(--standard-font-size-desktop) + 10px);
+    }
+    .s4-newsletter form input[type="email"] {
+        font-size: var(--standard-font-size-desktop);
     }
    
 }
