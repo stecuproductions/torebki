@@ -33,6 +33,7 @@ function Home(){
                                 <Product className="Product" key={produkt.id} {...produkt} />
                         ))}
                     </div>
+            
                 </div>
            </section>
            <section>
