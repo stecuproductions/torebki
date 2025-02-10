@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Fira+Code:wght@300..700&family=Knewave&family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Fira+Code:wght@300..700&family=Knewave&family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 :root{
     --standard-padding-desktop:20px;
     --standard-padding-tablet:15px;
     --standard-padding-mobile:15px;
-    --standard-font-size-mobile:18px;
-    --standard-font-size-tablet:16px;
+    --standard-font-size-mobile:16px;
+    --standard-font-size-tablet:18px;
     --standard-font-size-desktop:20px;
     --strandard-heading-font-size-mobile:40px;
+    --strandard-heading-font-size-desktop:55px;
     --standard-heading-font-size-tablet:50px;
+    
     --standard-font:"Cormorant Garamond", serif;
     --secondary-font: 'Montserrat', sans-serif;
     --standard-font-weight: 300;
@@ -87,7 +88,7 @@ body{
     margin-bottom: 30px;
 }
 
-@media (min-width: 768px) /*and (max-width: 1440px)*/{
+@media (min-width: 768px)  {
     .s1{
         display: grid;
         grid-template-columns: 1fr min-content 1fr;
@@ -141,12 +142,21 @@ body{
         grid-row:3;
         padding: 0;
         gap:20px;
+        font-size: var(--standard-font-size-tablet);
     }
     .s1-text-p2{
         width: clamp(200px, 50%, 400px);
     }
 }
 
+@media (min-width:1440px) {
+    .s1-h1{
+        font-size: var(--strandard-heading-font-size-desktop);
+    }
+    .s1-text{
+        font-size: var(--standard-font-size-desktop);
+    }
+}
 
 /*--------------------------------------------------------------------*/
 /*SECTION 2*/
@@ -213,28 +223,31 @@ body{
 }
 .p-text p{
     font-family: var(--secondary-font);
-    font-size: 16px;
 }
 
-@media (min-width: 768px) {
-    .s2-products{
 
+
+@media (min-width: 768px){
+    .s2-products{
         flex-direction: row;
         justify-content: flex-start;
         align-items: flex-start;
         align-content: flex-start;
-        gap:5%;
-
+        gap:5%;;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
     }
     .Product{
-        width: clamp(300px, 30%, 400px);
+        width: clamp(300px, 40%, 600px);
         align-items: flex-start;
+        padding-bottom: 80px;
     }
     .p-c1{
         align-items: flex-start;
         justify-content: flex-start;
     }
     .s2-h1{
+        font-size: var(--standard-heading-font-size-tablet);
         text-align: start;
         padding-left: 15px;                                                                                                                                                                                           ;
     }
@@ -250,7 +263,25 @@ body{
     .p-i1{
         width: 100%;
     }
+    .p-text h2{
+        font-size: calc(var(--standard-font-size-tablet) + 4px);
+    }
+    .p-text p{
+        font-size:var(--standard-font-size-tablet);
+    }
     
+}
+
+@media (min-width: 1440px) {
+    .s2-h1{
+        font-size: var(--strandard-heading-font-size-desktop);
+    }
+    .p-text h2{
+        font-size: calc(var(--standard-font-size-desktop) + 6px);
+    }
+    .p-text p{
+        font-size:var(--standard-font-size-desktop);
+    }
 }
 
 /*--------------------------------------------------------------------*/
@@ -343,6 +374,9 @@ body{
     background-color: var(--section-4-background-color);
     flex-direction: column;
 }
+.s4-footer{
+    font-size: var(--standard-font-size-mobile);
+}
 .s4-logo{
     width: 30%;
     display: flex;
@@ -355,7 +389,6 @@ body{
     gap: 5px;
     padding-left: 10px;
     font-family: var(--secondary-font);
-    font-size: var(--standard-font-size-mobile);
     padding-top: 5px;
     padding-bottom: 10px;
 }
@@ -368,14 +401,12 @@ body{
     align-items: center;
     gap:5px;
     font-family: var(--secondary-font);
-    font-size: var(--standard-font-size-mobile);
 }
 
 .s4-address{
     padding-top: 10px;
     padding-left: 10px;
     font-family: var(--secondary-font);
-    font-size: var(--standard-font-size-mobile);
 }
 
 .s4-newsletter{
@@ -388,7 +419,6 @@ body{
     flex-direction: column;
     gap: 20px;
     font-family: var(--secondary-font);
-    font-size: var(--standard-font-size-mobile);
 }
 
 .s4-newsletter-text-header{
@@ -403,7 +433,7 @@ body{
     align-items: center;
     gap: 10px;
     margin-top: 70px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .s4-newsletter form input[type="email"] {
@@ -411,7 +441,6 @@ body{
     border: none;
     border-bottom: 1px solid black;
     background-color: transparent;
-    font-size: var(--standard-font-size-mobile);
     outline: none;
     text-align: left;
 }
@@ -424,7 +453,6 @@ body{
     background-color: transparent;
     border: 0.9px solid black;
     font-family: var(--standard-font);
-    font-size: 23px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -497,7 +525,36 @@ body{
     .s4-newsletter form button {
         width: 20%;
         max-width: 300px;
+        font-size: var(--standard-font-size-tablet);
     }
     
+    .s4-footer{
+        font-size: var(--standard-font-size-tablet);
+    }
+    .s4-newsletter form{
+        font-size: var(--standard-font-size-tablet);
+    }
+    .s4-newsletter-text{
+        font-size: var(--standard-font-size-tablet);
+    }
+    .s4-newsletter-text-header{
+        font-size: calc(var(--standard-font-size-tablet) + 10px);
+    }
     
+}
+
+@media (min-width: 1440px) {
+    .s4-footer{
+        font-size: var(--standard-font-size-desktop);
+    }
+    .s4-newsletter form button{
+        font-size: var(--standard-font-size-desktop);
+    }
+    .s4-newsletter-text{
+        font-size: var(--standard-font-size-desktop);
+    }
+    .s4-newsletter-text-header{
+        font-size: calc(var(--standard-font-size-desktop) + 10px);
+    }
+   
 }

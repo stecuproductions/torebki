@@ -6,6 +6,7 @@ function Home(){
     const produkty=[
         {id:0, nazwa: "Torebka Denim Czarno szara", cena: "1000,00", zdjecie: "/images/_MG_0508.JPG"},
         {id:1, nazwa: "Torebka Denim Szara", cena: "800,00", zdjecie: "/images/_MG_0078.JPG"},
+        {id:2, nazwa: "Torebka Denim Czarna", cena: "900,00", zdjecie: "/images/_MG_0241.JPG"},
 
     ]
     return (
