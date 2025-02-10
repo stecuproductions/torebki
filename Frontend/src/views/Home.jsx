@@ -1,14 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import "../styles/home.css";
 import Product from "./Product.jsx";
-//            <img src="public/images/_MG_0295.JPG" alt="" />
-function Home(){
-    const produkty=[
-        {id:0, nazwa: "Torebka Denim Czarno szara", cena: "1000,00", zdjecie: "/images/_MG_0508.JPG"},
-        {id:1, nazwa: "Torebka Denim Szara", cena: "800,00", zdjecie: "/images/_MG_0078.JPG"},
-        {id:2, nazwa: "Torebka Denim Czarna", cena: "900,00", zdjecie: "/images/_MG_0241.JPG"},
 
-    ]
+function Home() {
+    const [isLoading, setIsLoading] = useState(true);
+    const [loadedImages, setLoadedImages] = useState(0);
+
+    const produkty = [
+        { id: 0, nazwa: "Torebka Denim Czarno szara", cena: "1000,00", zdjecie: "/images/_MG_0508.JPG" },
+        { id: 1, nazwa: "Torebka Denim Szara", cena: "800,00", zdjecie: "/images/_MG_0078.JPG" },
+        { id: 2, nazwa: "Torebka Denim Czarna", cena: "900,00", zdjecie: "/images/_MG_0241.JPG" }
+    ];
+
+    // Lista wszystkich obrazów na tej stronie
+    const images = [
+        "/images/_MG_0295.JPG",
+        "/images/_MG_0327.JPG",
+        "/images/_MG_0144.JPG",
+        "/images/_MG_0131.JPG",
+        "/images/_MG_0368.JPG",
+        "/images/logo_scraps-01.png",
+        "/images/Instagram.svg",
+        "/images/TikTok.svg",
+        ...produkty.map(p => p.zdjecie) // Dodajemy zdjęcia produktów
+    ];
+
+    useEffect(() => {
+        const preloadImages = () => {
+            const promises = images.map(src =>
+                new Promise(resolve => {
+                    const img = new Image();
+                    img.src = src;
+                    img.onload = resolve;
+                    img.onerror = resolve; // Pomija obrazki, które nie istnieją
+                })
+            );
+
+            Promise.all(promises).then(() => setIsLoading(false));
+        };
+
+        preloadImages();
+    }, []);
+
+    if (isLoading) {
+        return (
+            <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100vh",
+                fontSize: "24px"
+            }}>
+                Ładowanie strony...
+            </div>
+        );
+    }
     return (
         <>
            <section>
