@@ -5,7 +5,7 @@ import App from './App';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter> {/* Otaczamy App komponentem BrowserRouter */}
+    <BrowserRouter base="/https://github.com/stecuproductions/torebki"> {/* Otaczamy App komponentem BrowserRouter */}
       <App />
     </BrowserRouter>
   </StrictMode>
