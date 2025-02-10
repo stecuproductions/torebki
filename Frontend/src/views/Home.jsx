@@ -40,16 +40,51 @@ function Home(){
                 <h1 className='s3-h1'>O NAS</h1>
                 <img className='s3-i1' src="/images/_MG_0131.JPG" alt="" />
                 <img className='s3-i2' src="/images/_MG_0368.JPG" alt="" />
-                <p className='s3-p1'>Tutaj mozecie sobie dac jaki opis jakies informacje o was samych. Nadal prosze o wyjasnienie jak z dzinsow sie robi torebki. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.</p>
+                <div className='s3-text'>
+                    <h2 className='s3-h2'>Nasza historia</h2>
+                    <p className='s3-p1'>Tutaj mozecie sobie dac jaki opis jakies informacje o was samych. Nadal prosze o wyjasnienie jak z dzinsow sie robi torebki. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id facilisis nunc. Quisque dignissim metus a lorem lobortis egestas. Vestibulum vehicula rhoncus enim pulvinar molestie. Vestibulum mauris elit, tempus vel accumsan quis, ultrices id dui. Proin facilisis libero nec nulla consectetur, non interdum dolor fermentum. Quisque in interdum magna. Curabitur fringilla ante id sapien interdum, a dictum elit cursus. Pellentesque nec tortor sed justo pulvinar malesuada. Curabitur vestibulum erat risus, sed congue nulla suscipit quis. Maecenas scelerisque nisl non sapien interdum, at eleifend eros malesuada.</p>
+                </div>
             </div>
-
            </section>
+
            <section>
+            <div className="s4">
+                <img src="/images/logo_scraps-01.svg" className="navbar-logo" alt="logo" />
+                <svg className="full-width-line" width="100%" height="2" viewBox="0 0 100 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <line x1="0" y1="1" x2="100" y2="1" stroke="black" stroke-width="2"/>
+                </svg>
+                <div className='s4-text1'>
+                        <p>+48 123-456-789</p>
+                        <p>info@scraps.com</p>
+                </div>
+                <svg className="full-width-line" width="100%" height="2" viewBox="0 0 100 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <line x1="0" y1="1" x2="100" y2="1" stroke="black" stroke-width="2"/>
+                </svg>
+                <div className="s4-text2">
+                    <div className='s4-text2-1'>
+                        <img src="/images/Instagram.svg" alt="" />
+                        <p>@scraps123</p>
+                    </div>
+                    <div className='s4-text2-2'>
+                        <img src="/images/TikTok.svg" alt="" />
+                        <p>@scrapsTikTok</p>
+                    </div>
+                </div>
+                <div className="s4-text3">
+                    <p>ul. Zielona 5</p>
+                    <p>78-345 Warszafka</p>
+                </div>
+                <div className='newsletter'>
+                    <h2>Zapisz się do newslettera</h2>
+                    <p>Podaj swój e-mail</p>
+                    <form action="">
+                        <input type="email" name="email" id="email" placeholder="Twój e-mail" />
+                        <button type="submit">Subskrybuj</button>
+                    </form>
+                </div>
+            </div>
+        </section>
 
-           </section>
-           <section>
-
-           </section>
         </>
     );
 }
