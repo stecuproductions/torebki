@@ -46,44 +46,48 @@ function Home(){
                 </div>
             </div>
            </section>
-
            <section>
             <div className="s4">
-                <img src="/images/logo_scraps-01.svg" className="navbar-logo" alt="logo" />
-                <svg className="full-width-line" width="100%" height="2" viewBox="0 0 100 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <line x1="0" y1="1" x2="100" y2="1" stroke="black" stroke-width="2"/>
+                <img src="/images/logo_scraps-01.png" alt="Logo Scraps" className="s4-logo" />
+                <svg  className='s4-footer-line' width="100%" height="2" viewBox="0 0 100 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <line x1="0" y1="1" x2="100" y2="1" stroke="black" strokeWidth="0.5" />
                 </svg>
-                <div className='s4-text1'>
+                <div className="s4-footer">
+                    <div className='s4-contact'>
                         <p>+48 123-456-789</p>
                         <p>info@scraps.com</p>
-                </div>
-                <svg className="full-width-line" width="100%" height="2" viewBox="0 0 100 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <line x1="0" y1="1" x2="100" y2="1" stroke="black" stroke-width="2"/>
-                </svg>
-                <div className="s4-text2">
-                    <div className='s4-text2-1'>
-                        <img src="/images/Instagram.svg" alt="" />
-                        <p>@scraps123</p>
                     </div>
-                    <div className='s4-text2-2'>
-                        <img src="/images/TikTok.svg" alt="" />
-                        <p>@scrapsTikTok</p>
+                    <svg className='s4-footer-line'  width="100%" height="2" viewBox="0 0 100 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                        <line x1="0" y1="1" x2="100" y2="1" stroke="black" strokeWidth="0.5" />
+                    </svg>
+                    <div className='s4-social-media-container'>
+                        <div className='s4-social-media'>
+                            <img src="/images/Instagram.svg" alt="Instagram" />
+                            <p>@scraps123</p>
+                        </div>
+                        <div className='s4-social-media'>
+                            <img src="/images/TikTok.svg" alt="TikTok" />
+                            <p>@scrapsTikTok</p>
+                        </div>
+                    </div>
+                    <div className='s4-address'>
+                        <p>ul. Zielona 5</p>
+                        <p>78-345 Warszafka</p>
                     </div>
                 </div>
-                <div className="s4-text3">
-                    <p>ul. Zielona 5</p>
-                    <p>78-345 Warszafka</p>
-                </div>
-                <div className='newsletter'>
-                    <h2>Zapisz się do newslettera</h2>
-                    <p>Podaj swój e-mail</p>
+                <div className='s4-newsletter'>
+                    <div className='s4-newsletter-text'>
+                        <h2 className='s4-newsletter-text-header'>Zapisz się do newslettera</h2>
+                        <p>Podaj swój e-mail</p>
+                    </div>
                     <form action="">
-                        <input type="email" name="email" id="email" placeholder="Twój e-mail" />
-                        <button type="submit">Subskrybuj</button>
+                        <input type="email" name="email" id="email" placeholder="" />
+                        <button type="submit">SUBSKRYBUJ</button>
                     </form>
                 </div>
             </div>
         </section>
+
 
         </>
     );
