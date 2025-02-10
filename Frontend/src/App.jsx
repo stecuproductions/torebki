@@ -7,8 +7,9 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="https://stecuproductions.github.io/torebki/" element={<Home />} />
+        < Route path="/" element={<Home />} />
       </Routes>
+
     </>
   );
 }
