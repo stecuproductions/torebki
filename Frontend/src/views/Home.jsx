@@ -33,10 +33,15 @@ function Home(){
                                 <Product className="Product" key={produkt.id} {...produkt} />
                         ))}
                     </div>
-            
                 </div>
            </section>
            <section>
+            <div className='s3'>
+                <h1 className='s3-h1'>O NAS</h1>
+                <img className='s3-i1' src="/images/_MG_0131.JPG" alt="" />
+                <img className='s3-i2' src="/images/_MG_0368.JPG" alt="" />
+                <p className='s3-p1'>Tutaj mozecie sobie dac jaki opis jakies informacje o was samych. Nadal prosze o wyjasnienie jak z dzinsow sie robi torebki. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus.</p>
+            </div>
 
            </section>
            <section>

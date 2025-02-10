@@ -13,6 +13,7 @@
     --secondary-font: 'Montserrat', sans-serif;
     --standard-font-weight: 300;
     --section-2-background-color: #A79A90;
+    --section-3-background-color: #000000;
 }
 
 
@@ -154,7 +155,7 @@ body{
     background-color: var(--section-2-background-color); 
     padding: var(--standard-padding-mobile);
     padding-top:20px;
-    padding-bottom: 60px;
+    padding-bottom: 40px;
 
 }
 
@@ -249,4 +250,41 @@ body{
         width: 100%;
     }
     
+}
+
+/*--------------------------------------------------------------------*/
+/*SECTION 3*/
+/*--------------------------------------------------------------------*/
+
+.s3{
+    background-color: var(--section-3-background-color);
+    color: white;
+    padding: var(--standard-padding-mobile);
+    padding: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.s3-h1{
+    font-size: var(--strandard-heading-font-size-mobile);
+    font-weight: 400;
+    width: 100%;
+    font-family: var(--standard-font);
+    font-weight: 400;
+}
+.s3-i1{
+    width: 45%;
+}
+.s3-i2{
+    width: 40%;
+}
+.s3-p1{
+    margin-top: 30px;
+    font-family: var(--secondary-font);
+    line-height: 1.3;
+    font-size: var(--standard-font-size-mobile);
 }
