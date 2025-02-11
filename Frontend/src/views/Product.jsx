@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion"; // Import animacji
+import { useNavigate } from "react-router-dom";
 import "../styles/home.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-function Product({ nazwa, cena, zdjecia }) {
+function Product({ id ,nazwa, cena, zdjecia }) {
+    const navigate = useNavigate();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState(1); // Kierunek animacji
 
@@ -26,7 +28,7 @@ function Product({ nazwa, cena, zdjecia }) {
     };
 
     return (
-        <div className="Product">
+        <div className="Product"  onClick={() => navigate(`/product/${id}`)}>
             <div className="p-c1">
                 <svg data-aos="fade-zoom-in" className="arrow" width="32" height="56" viewBox="0 0 8 14" fill="none" onClick={prevImage}
                      xmlns="http://www.w3.org/2000/svg">

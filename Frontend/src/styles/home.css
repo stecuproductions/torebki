@@ -6,7 +6,7 @@
     --standard-font-size-mobile:16px;
     --standard-font-size-tablet:18px;
     --standard-font-size-desktop:20px;
-    --strandard-heading-font-size-mobile:40px;
+    --strandard-heading-font-size-mobile :40px;
     --strandard-heading-font-size-desktop:55px;
     --standard-heading-font-size-tablet:50px;
     
@@ -424,7 +424,7 @@ body{
     background-color: transparent;
     border: solid 1px white;
     padding: 20px 5px 20px 5px;
-    transition: all;
+    transition: background-color 1s ease;
 }
 .s3-button:hover{
     background-color: white;
