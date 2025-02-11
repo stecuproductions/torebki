@@ -5,7 +5,7 @@ import AOS from 'aos';
 import Product from "./Product.jsx";
 import './BuyProduct.jsx';
 import 'aos/dist/aos.css';
-import ColorPicker from "./ColorPicker.jsx";
+
 export const  produkty = [
     { key:0, opis:"Torebka czarna 100% Denim", id: 0, nazwa: "Torebka Denim Czarno szara", cena: "1000,00", zdjecia: [
         "/images/_MG_0508.JPG",
