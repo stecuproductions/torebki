@@ -1,18 +1,17 @@
+
 import React, { useState, useEffect } from "react";
 import "../styles/home.css";
+import AOS from 'aos';
 import Product from "./Product.jsx";
+import 'aos/dist/aos.css';
 
 function Home() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [loadedImages, setLoadedImages] = useState(0);
-
     const produkty = [
         { id: 0, nazwa: "Torebka Denim Czarno szara", cena: "1000,00", zdjecie: "/images/_MG_0508.JPG" },
         { id: 1, nazwa: "Torebka Denim Szara", cena: "800,00", zdjecie: "/images/_MG_0078.JPG" },
         { id: 2, nazwa: "Torebka Denim Czarna", cena: "900,00", zdjecie: "/images/_MG_0241.JPG" }
     ];
 
-    // Lista wszystkich obrazów na tej stronie
     const images = [
         "/images/_MG_0295.JPG",
         "/images/_MG_0327.JPG",
@@ -22,39 +21,15 @@ function Home() {
         "/images/logo_scraps-01.png",
         "/images/Instagram.svg",
         "/images/TikTok.svg",
-        ...produkty.map(p => p.zdjecie) // Dodajemy zdjęcia produktów
+        ...produkty.map(p => p.zdjecie)
     ];
-
     useEffect(() => {
-        const preloadImages = () => {
-            const promises = images.map(src =>
-                new Promise(resolve => {
-                    const img = new Image();
-                    img.src = src;
-                    img.onload = resolve;
-                    img.onerror = resolve; // Pomija obrazki, które nie istnieją
-                })
-            );
-
-            Promise.all(promises).then(() => setIsLoading(false));
-        };
-
-        preloadImages();
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
     }, []);
 
-    if (isLoading) {
-        return (
-            <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100vh",
-                fontSize: "24px"
-            }}>
-                Ładowanie strony...
-            </div>
-        );
-    }
     return (
         <>
            <section>
@@ -75,7 +50,7 @@ function Home() {
                     <svg width="100%" height="2" viewBox="0 0 100 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                         <line x1="1" y1="1" x2="100" y2="1" stroke="black" stroke-width="1"/>
                     </svg>
-                    <div className='s2-products'>
+                    <div className='s2-products' >
                         {produkty.map((produkt) => (
                                 <Product className="Product" key={produkt.id} {...produkt} />
                         ))}
@@ -85,7 +60,7 @@ function Home() {
            <section>
             <div className='s3'>
                 <h1 className='s3-h1'>O NAS</h1>
-                <img className='s3-i1' src="/images/_MG_0131.JPG" alt="" />
+                <img className='s3-i1' src="/images/_MG_0131.JPG" alt=""  data-aos="fade-right"/>
                 <img className='s3-i2' src="/images/_MG_0368.JPG" alt="" />
                 <div className='s3-container'>
                     <div className='s3-text'>

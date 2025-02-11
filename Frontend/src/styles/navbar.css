@@ -47,7 +47,6 @@ body{
 .navbar-logo {
     max-width: clamp(110px, 20%, 200px);
     height: auto;
-    animation: leFadeInLeft 2s;
 }
 
 
@@ -68,7 +67,6 @@ body{
     background-color: #fff;
     position: relative;
     flex-direction: column;
-    animation: leFadeInRight 2s;
 }
 
 .cart-container p {
@@ -88,7 +86,6 @@ body{
 .cart-container img {
     width: 60%;
     height: auto;
-    animation: leFadeInRight 2s;
 }
 
 /* 🔹 Hamburger */
