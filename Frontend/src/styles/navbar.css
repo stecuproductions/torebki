@@ -10,9 +10,9 @@
     box-sizing: border-box;
 }
 
-body{
-    display: flex;
-    flex-direction: column;
+body, html{
+    overflow-x: hidden;
+    width: 100%;
 
 }
 

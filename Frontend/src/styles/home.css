@@ -18,7 +18,10 @@
     --section-4-background-color: #B9B2A8;
 }
 
-
+body, html{
+    overflow-x: hidden;
+    width: 100%;
+}
 /*animations*/
 .leFadeInLeft span { animation-name: leFadeInLeft }
 @keyframes leFadeInLeft {
