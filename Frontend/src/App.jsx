@@ -1,19 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./views/Home";
 import Navbar from "./views/navbar";
-import LoadingScreen from "./views/LoadingScreen";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    window.onload = () => {
-      setIsLoading(false);
-    };
-  }, []);
-
-  if (isLoading) return <LoadingScreen />;
 
   return (
     <>

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import "../styles/home.css";
 import AOS from 'aos';
 import Product from "./Product.jsx";
@@ -12,17 +12,6 @@ function Home() {
         { id: 2, nazwa: "Torebka Denim Czarna", cena: "900,00", zdjecie: "/images/_MG_0241.JPG" }
     ];
 
-    const images = [
-        "/images/_MG_0295.JPG",
-        "/images/_MG_0327.JPG",
-        "/images/_MG_0144.JPG",
-        "/images/_MG_0131.JPG",
-        "/images/_MG_0368.JPG",
-        "/images/logo_scraps-01.png",
-        "/images/Instagram.svg",
-        "/images/TikTok.svg",
-        ...produkty.map(p => p.zdjecie)
-    ];
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -46,13 +35,13 @@ function Home() {
            </section>
            <section>
                 <div className="s2">
-                    <h1 className="s2-h1">PRODUKTY</h1>
+                    <h1 className="s2-h1" data-aos="fade-right">PRODUKTY</h1>
                     <svg width="100%" height="2" viewBox="0 0 100 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                         <line x1="1" y1="1" x2="100" y2="1" stroke="black" stroke-width="1"/>
                     </svg>
                     <div className='s2-products' >
                         {produkty.map((produkt) => (
-                                <Product className="Product" key={produkt.id} {...produkt} />
+                                <Product className="Product" key={produkt.id} {...produkt}  />
                         ))}
                     </div>
                 </div>
@@ -61,25 +50,25 @@ function Home() {
             <div className='s3'>
                 <h1 className='s3-h1'>O NAS</h1>
                 <img className='s3-i1' src="/images/_MG_0131.JPG" alt=""  data-aos="fade-right"/>
-                <img className='s3-i2' src="/images/_MG_0368.JPG" alt="" />
+                <img className='s3-i2' src="/images/_MG_0368.JPG" alt=""  data-aos="fade-left"/>
                 <div className='s3-container'>
                     <div className='s3-text'>
-                        <h2 className='s3-h2'>Nasza historia</h2>
-                        <p className='s3-p1'>Tutaj mozecie sobie dac jaki opis jakies informacje o was samych. Nadal prosze o wyjasnienie jak z dzinsow sie robi torebki. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id facilisis nunc. Quisque dignissim </p>
+                        <h2 className='s3-h2' data-aos="zoom-in" >Nasza historia</h2>
+                        <p className='s3-p1'  data-aos="zoom-in">Tutaj mozecie sobie dac jaki opis jakies informacje o was samych. Nadal prosze o wyjasnienie jak z dzinsow sie robi torebki. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id facilisis nunc. Quisque dignissim </p>
                     </div>
-                    <button className='s3-button'>Dowiedz się więcej</button>
+                    <button data-aos="zoom-in" className='s3-button'>Dowiedz się więcej</button>
                 </div>
             </div>
            </section>
            <section>
             <div className="s4">
-                <img src="/images/logo_scraps-01.png" alt="Logo Scraps" className="s4-logo" />
+                <img src="/images/logo_scraps-01.png" alt="Logo Scraps" className="s4-logo" data-aos="fade-right"/>
                 <svg  className='s4-footer-line' width="100%" height="2" viewBox="0 0 100 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                     <line x1="0" y1="1" x2="100" y2="1" stroke="black" strokeWidth="0.5" />
                 </svg>
-                <div className="s4-footer">
+                <div className="s4-footer" data-aos="fade-right">
                     <div className='s4-contact'>
-                        <p>+48 123-456-789</p>
+                        <p >+48 123-456-789</p>
                         <p>info@scraps.com</p>
                     </div>
                     <svg className='s4-footer-line'  width="100%" height="2" viewBox="0 0 100 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -101,13 +90,13 @@ function Home() {
                     </div>
                 </div>
                 <div className='s4-newsletter'>
-                    <div className='s4-newsletter-text'>
+                    <div className='s4-newsletter-text' data-aos="fade-right">
                         <h2 className='s4-newsletter-text-header'>Zapisz się do newslettera</h2>
                         <p>Podaj swój e-mail</p>
                     </div>
                     <form action="">
-                        <input type="email" name="email" id="email" autoComplete='off' placeholder="" />
-                        <button type="submit">SUBSKRYBUJ</button>
+                        <input type="email" name="email" id="email" data-aos="fade-right" autoComplete='off' placeholder="" />
+                        <button type="submit" data-aos="fade-left">SUBSKRYBUJ</button>
                     </form>
                 </div>
             </div>

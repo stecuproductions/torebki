@@ -68,6 +68,7 @@ body{
     object-fit: cover;
     max-width: 300px;
     align-self: center;
+    animation: leFadeInLeft 2s ease-out;
 }
 
 
@@ -77,6 +78,7 @@ body{
     font-size: var(--strandard-heading-font-size-mobile);
     text-align: center;
     font-weight: 400;
+    animation: leFadeInRight 2s ease-out;
 }
 
 .s1-text{
@@ -87,6 +89,7 @@ body{
     flex-direction: column;
     gap: 20px;
     width: 80%;
+    animation: leFadeInRight 2s ease-out;
 }
 
 .s1-i2{
@@ -98,6 +101,7 @@ body{
     padding: --standard-padding-mobile;
     height: 200px;object-position: center;
     align-self: flex-end;
+    animation: leFadeInRight 2s ease-out;
 }
 
 .s1-i3{
@@ -106,6 +110,7 @@ body{
     aspect-ratio: 2.1/1;
     object-fit: cover;
     object-position: 90% center;
+    animation: leFadeInLeft 2s ease-out;
     margin-bottom: 30px;
 }
 

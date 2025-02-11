@@ -35,6 +35,12 @@ body{
     to { opacity: 1 }
 }
 
+.leFadeIn span { animation-name: leFadeIn }
+@keyframes leFadeIn {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
 .navbar {
     background-color: #000;
     display: flex;
@@ -47,6 +53,7 @@ body{
 .navbar-logo {
     max-width: clamp(110px, 20%, 200px);
     height: auto;
+    animation: leFadeIn 2s;
 }
 
 
@@ -67,6 +74,8 @@ body{
     background-color: #fff;
     position: relative;
     flex-direction: column;
+    animation: leFadeIn 2s;
+
 }
 
 .cart-container p {
@@ -92,6 +101,8 @@ body{
 .hamburger {
     width: 50px;
     cursor: pointer;
+    animation: leFadeIn 2s;
+
 }
 
 
