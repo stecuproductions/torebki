@@ -42,7 +42,9 @@ body, html{
 }
 
 /*animations*/
-
+.p-slide-left{
+    animation: slide-left 1s ease-out;
+}
 
 body{
     background-color: rgb(0, 0, 0);
@@ -226,15 +228,32 @@ body{
     gap:10px;
 }
 .p-i1{
-    width: 90%;
+    width: 100%;
     max-height: 250px;
-
+    opacity: 1;
 }
+
+.p-image-container{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+.p-image-container {
+    position: relative;
+    display: inline-block;
+}
+
+
+
+
 .arrow{
-    transform: scale(1.5);
-    cursor: pointer;
+    width: 10px;
+    cursor: pointer;;
 }
 
+.p-circle-container{
+    display: none;
+}
 
 .Product{
     display: flex;
@@ -287,6 +306,27 @@ body{
     }
     .arrow{
         display: none;
+    }
+    .p-circle-container {
+        position: absolute;
+        bottom: 12px; /* Odległość od dolnej krawędzi obrazu */
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px; /* Odstęp między kółkami */
+    }
+    
+    .p-circle-switch {
+        width: 6px;
+        height: 6px;
+        background-color: rgba(255, 255, 255, 0.6); /* Półprzezroczyste białe */
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    
+    .p-circle-switch.active {
+        background-color: white; /* Podświetlony aktywny wskaźnik */
     }
     .p-text{
         width: auto;
@@ -384,11 +424,11 @@ body{
     background-color: transparent;
     border: solid 1px white;
     padding: 20px 5px 20px 5px;
-    transition: all 0.3s ease;
-    &:hover{
-        background-color: white;
-        color: black;
-    }
+    transition: all;
+}
+.s3-button:hover{
+    background-color: white;
+    color: black;
 }
 
 @media(min-width: 768px){
@@ -666,3 +706,4 @@ body{
     }
    
 }
+
