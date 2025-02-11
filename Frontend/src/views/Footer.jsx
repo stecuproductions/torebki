@@ -10,6 +10,7 @@ function Footer(){
                 once: true,
             });
         }, [])
+
     return(
         <footer className="s4">
                     <img src="/images/logo_scraps-01.png" alt="Logo Scraps" className="s4-logo" data-aos="fade-right"/>
@@ -49,6 +50,7 @@ function Footer(){
                             <button type="submit" data-aos="fade-left">SUBSKRYBUJ</button>
                         </form>
                     </div>
+
                 </footer>
     )
 }

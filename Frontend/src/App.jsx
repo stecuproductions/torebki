@@ -5,6 +5,7 @@ import Navbar from "./views/navbar";
 import BuyProduct from "./views/BuyProduct";
 import Footer from "./views/Footer";
 import "./styles/home.css";
+import ColorPicker from "./views/ColorPicker";
 
 function App() {
 
@@ -16,6 +17,8 @@ function App() {
         <Route path="/product/:id" element={<BuyProduct />}/>
       </Routes>
       <Footer/>
+      <ColorPicker/>
+      
     </>
   );
 }
