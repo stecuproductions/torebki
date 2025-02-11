@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./views/Home";
-import Navbar from "./views/Navbar";
+import Navbar from "./views/navbar";
 import LoadingScreen from "./views/LoadingScreen";
 
 function App() {
