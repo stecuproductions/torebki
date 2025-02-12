@@ -1,8 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect,useState, useRef } from "react";
 import { produkty } from "./Home";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/BuyProduct.css";
-import { div } from "framer-motion/client";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function BuyProduct() {
     const [productCount, setProductCount] = useState(1);
@@ -11,7 +12,12 @@ function BuyProduct() {
     const { id } = useParams();
     const urlId = Number(id);
     const produkt = produkty.find(produkt => produkt.id === urlId);
-
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+    }, []);   
     const startX = useRef(0); 
 
     function handleSwipeStart(e) {
@@ -33,12 +39,13 @@ function BuyProduct() {
 
     return (
 
-            <div className="buy-product-main"> 
-                    <div className="buy-product-text1">
+
+            <div className="buy-product-main" data-aos="fade-right">  
+                    <div  className="buy-product-text1" onClick={() => navigate("/")}>
                         <svg className="buy-product-text1-arrow" fill="white" height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 404.258 404.258" xmlSpace="preserve"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="289.927,18 265.927,0 114.331,202.129 265.927,404.258 289.927,386.258 151.831,202.129 "></polygon> </g></svg>
                         <p className="buy-product-text1-p">Powrót do strony: Strona główna</p>
                     </div>
-                    <div className="buy-product-c1">
+                    <div className="buy-product-c1" >
                         <div className="buy-product-c1-c1">
                             <img className="buy-product-c1-c1-i1" src={produkt.zdjecia[currentPhotoIndex]} alt="" onTouchStart={handleSwipeStart} onTouchEnd={handleSwipeEnd}/>
                             <div className="buy-product-c1-c1-scrollCircles">

@@ -270,13 +270,14 @@ body{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    text-decoration: underline;
     cursor: pointer;
 
 }
 .p-text h2{
     font-weight: 500;
     font-size: calc(var(--standard-font-size-mobile) + 4px);
+    text-decoration: underline;
+
 }
 .p-text p{
     font-family: var(--secondary-font);
