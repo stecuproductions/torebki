@@ -270,6 +270,8 @@ body{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    text-decoration: underline;
+    cursor: pointer;
 
 }
 .p-text h2{
@@ -590,19 +592,18 @@ body{
 }
 
 
-.s4-newsletter form button {
+#s4-newsletter-form-1-button {
     margin-top: 20px;
     padding: 10px 0px;
     width: 65%;
-    background-color: transparent;
+    background-color: inherit;
     border: 0.9px solid black;
     font-family: var(--standard-font);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-.s4-newsletter form button:hover {
-    background-color: black;
+#s4-newsletter-form-1-button:hover{
+    background-color: rgb(0, 0, 0);
     color: white;
 }
 

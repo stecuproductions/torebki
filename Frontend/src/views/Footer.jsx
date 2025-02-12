@@ -47,7 +47,7 @@ function Footer(){
                         </div>
                         <form action="">
                             <input type="email" name="email" id="email" data-aos="fade-right" autoComplete='off' placeholder="" />
-                            <button type="submit" data-aos="fade-left">SUBSKRYBUJ</button>
+                            <button id="s4-newsletter-form-1-button" type="submit" data-aos="fade-left">SUBSKRYBUJ</button>
                         </form>
                     </div>
 

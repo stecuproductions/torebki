@@ -28,7 +28,7 @@ function Product({ id ,nazwa, cena, zdjecia }) {
     };
 
     return (
-        <div className="Product"  onClick={() => navigate(`/product/${id}`)}>
+        <div className="Product" >
             <div className="p-c1">
                 <svg data-aos="fade-zoom-in" className="arrow" width="32" height="56" viewBox="0 0 8 14" fill="none" onClick={prevImage}
                      xmlns="http://www.w3.org/2000/svg">
@@ -44,10 +44,10 @@ function Product({ id ,nazwa, cena, zdjecia }) {
                             src={zdjecia[currentIndex]}
                             className="p-i1"
                             alt="Produkt"
-                            initial={{ opacity: 0, x: direction * 100 }} // Start poza ekranem
-                            animate={{ opacity: 1, x: 0 }} // Płynnie wchodzi na miejsce
-                            exit={{ opacity: 0, x: direction * -100 }} // Wychodzi w przeciwną stronę
-                            transition={{ duration: 0.5, ease: "easeInOut" }} // Płynna animacja
+                            //initial={{ opacity: 0,}} // Start poza ekranem
+                            // animate={{ opacity: 1, x: 0 }} // Płynnie wchodzi na miejsce
+                            // exit={{ opacity: 0, }} // Wychodzi w przeciwną stronę
+                            // transition={{ duration: 0.5, ease: "easeInOut" }} // Płynna animacja
                         />
                     </AnimatePresence>
 
@@ -72,7 +72,7 @@ function Product({ id ,nazwa, cena, zdjecia }) {
                     </g>
                 </svg>
             </div>
-            <div className="p-text">
+            <div className="p-text " onClick={() =>  {window.scrollTo(0, 0); navigate(`/product/${id}`)}}>
                 <h2 data-aos="fade-zoom-in">{nazwa}</h2>
                 <p data-aos="fade-zoom-in">{cena} zł</p>
             </div>

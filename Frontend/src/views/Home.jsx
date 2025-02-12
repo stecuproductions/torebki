@@ -7,7 +7,7 @@ import './BuyProduct.jsx';
 import 'aos/dist/aos.css';
 
 export const  produkty = [
-    { key:0, opis:"Torebka czarna 100% Denim", id: 0, nazwa: "Torebka Denim Czarno szara", cena: "1000,00", zdjecia: [
+    { key:0, opis:"Torebka czarna 100% Denim", id: 0, nazwa: "Torebka Denim Czarno szara", cena: "1 000,00", zdjecia: [
         "/images/_MG_0508.JPG",
         "/images/_MG_0228.JPG",
         "/images/_MG_0526.JPG"
