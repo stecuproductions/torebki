@@ -39,13 +39,13 @@ function BuyProduct() {
 
     function handleSubmit(e) {
         var alreadyInCart=false;
+        window.scrollTo(0, 0);
         const product = { ...produkt, ilosc: productCount };
         koszyk.forEach((element) => {
             if (element.id === produkt.id) {
                 element.ilosc += productCount;
                 alreadyInCart=true;
                 localStorage.setItem('koszyk', JSON.stringify(koszyk));
-                window.scrollTo(0, 0);
                 navigate("/cart");
             }
         })
