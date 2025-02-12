@@ -28,9 +28,9 @@ function Product({ id ,nazwa, cena, zdjecia }) {
     };
 
     return (
-        <div className="Product" >
+        <div className="Product"  data-aos="zoom-out">
             <div className="p-c1">
-                <svg data-aos="fade-zoom-in" className="arrow" width="32" height="56" viewBox="0 0 8 14" fill="none" onClick={prevImage}
+                <svg  className="arrow" width="32" height="56" viewBox="0 0 8 14" fill="none" onClick={prevImage}
                      xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 13L1 7L7 1" stroke="black" strokeOpacity="0.8" strokeWidth="1.5" strokeLinecap="round"
                           strokeLinejoin="round"/>
@@ -64,7 +64,7 @@ function Product({ id ,nazwa, cena, zdjecia }) {
                 </div>
 
 
-                <svg data-aos="fade-zoom-in" className="arrow" width="32" height="56" viewBox="0 0 8 14" fill="none" onClick={nextImage}
+                <svg  className="arrow" width="32" height="56" viewBox="0 0 8 14" fill="none" onClick={nextImage}
                      xmlns="http://www.w3.org/2000/svg">
                     <g transform="rotate(180, 4, 7)">
                         <path d="M7 13L1 7L7 1" stroke="black" strokeOpacity="0.8" strokeWidth="1.5" strokeLinecap="round"
@@ -73,8 +73,8 @@ function Product({ id ,nazwa, cena, zdjecia }) {
                 </svg>
             </div>
             <div className="p-text " onClick={() =>  {window.scrollTo(0, 0); navigate(`/product/${id}`)}}>
-                <h2 data-aos="fade-zoom-in">{nazwa}</h2>
-                <p data-aos="fade-zoom-in">{cena} zł</p>
+                <h2>{nazwa}</h2>
+                <p>{cena} zł</p>
             </div>
         </div>
     );

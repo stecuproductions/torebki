@@ -276,7 +276,7 @@ body{
 .p-text h2{
     font-weight: 500;
     font-size: calc(var(--standard-font-size-mobile) + 4px);
-    text-decoration: underline;
+        text-decoration: underline;
 
 }
 .p-text p{
@@ -291,7 +291,7 @@ body{
         justify-content: flex-start;
         align-items: flex-start;
         align-content: flex-start;
-        gap:5%;;
+        gap: 10%;
         flex-wrap: wrap;
         row-gap: 20px;
     }

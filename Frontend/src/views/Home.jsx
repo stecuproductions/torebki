@@ -25,6 +25,9 @@ export const  produkty = [
     ] }
 ];
 
+const savedCart = localStorage.getItem('koszyk');
+export const koszyk = savedCart ? JSON.parse(savedCart) : [];
+
 function Home() {
 
     useEffect(() => {
@@ -56,7 +59,7 @@ function Home() {
                     </svg>
                     <div className='s2-products' >
                         {produkty.map((produkt) => (
-                                <Product className="Product" key={produkt.key} id={produkt.id} nazwa={produkt.nazwa} cena={produkt.cena} zdjecia={produkt.zdjecia} />
+                                <Product  className="Product" key={produkt.key} id={produkt.id} nazwa={produkt.nazwa} cena={produkt.cena} zdjecia={produkt.zdjecia} />
                         ))}
                     </div>
                 </div>
@@ -71,7 +74,6 @@ function Home() {
                         <h2 className='s3-h2' data-aos="zoom-in" >Nasza historia</h2>
                         <p className='s3-p1'  data-aos="zoom-in">Tutaj mozecie sobie dac jaki opis jakies informacje o was samych. Nadal prosze o wyjasnienie jak z dzinsow sie robi torebki. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id facilisis nunc. Quisque dignissim </p>
                     </div>
-                    <button data-aos="zoom-in" className='s3-button'>Dowiedz się więcej</button>
                 </div>
             </div>
            </section>

@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../styles/BuyProduct.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import {koszyk} from "./Home";
 function BuyProduct() {
     const [productCount, setProductCount] = useState(1);
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
@@ -37,6 +37,29 @@ function BuyProduct() {
         }
     }
 
+    function handleSubmit(e) {
+        var alreadyInCart=false;
+        const product = { ...produkt, ilosc: productCount };
+        koszyk.forEach((element) => {
+            if (element.id === produkt.id) {
+                element.ilosc += productCount;
+                alreadyInCart=true;
+                localStorage.setItem('koszyk', JSON.stringify(koszyk));
+                window.scrollTo(0, 0);
+                navigate("/cart");
+            }
+        })
+        if (alreadyInCart){
+            return;
+        }
+        
+        koszyk.push(product);
+        localStorage.setItem('koszyk', JSON.stringify(koszyk));
+        navigate("/cart");
+        
+        
+    }
+
     return (
 
 
@@ -63,17 +86,17 @@ function BuyProduct() {
                                 <h1 className="buy-product-c1-c2-text1-h1">{produkt.nazwa}</h1>
                                 <p className="buy-product-c1-c2-text1-p">{produkt.cena} zł</p>
                             </div>
-                            <form className="buy-product-c1-c2-form1">
-                            <label className="buy-product-c1-c2-form1-l1">Sztuk</label>
-                             <input
-                                type="number"
-                                className="buy-product-c1-c2-form1-i1"
-                                value={productCount}
-                                onChange={(e) => setProductCount(e.target.value)}
-                            />
-                            <button className="buy-product-c1-c2-form1-b1" type="submit">
-                                Dodaj do koszyka
-                            </button>
+                            <form className="buy-product-c1-c2-form1"  onSubmit={handleSubmit}>
+                                <label className="buy-product-c1-c2-form1-l1">Sztuk</label>
+                                <input
+                                    type="number"
+                                    className="buy-product-c1-c2-form1-i1"
+                                    value={productCount}
+                                    onChange={(e) => setProductCount(e.target.value)}
+                                />
+                                <button className="buy-product-c1-c2-form1-b1"  type="submit"> 
+                                    Dodaj do koszyka
+                                </button>
                             </form>
                         </div>
                     </div>

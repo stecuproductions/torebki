@@ -1,0 +1,206 @@
+.cart-main{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--secondary-font);
+    font-size: var(--secondary-font-size-mobile);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 50px;
+
+
+}
+.cart-c1{
+    width: 100% ;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    justify-content: center;
+    align-items: start;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.cart-bin{
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    align-self: flex-start;
+    margin-left: auto;
+    margin-right: 15px;
+}
+.cart-c1-i1{
+    max-width: 200px;
+    object-fit: cover;
+    height: 80px;
+    width: clamp(50px, 100%, 100px);
+}
+.cart-c1-product{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.475);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.475);
+
+}
+
+.cart-c1-product-text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 20px;
+    width: 50%;
+}
+.cart-c1-product-text-c1{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+.cart-c1-product-text-c1-c1{
+    display: flex;
+    flex-direction: row;
+    width: 72px;
+    height: 40px;
+    justify-content: space-between;
+    padding: 2px 10px 2px 10px;
+    align-items: center;
+    border: 1px solid white;
+    opacity: 0.8;
+}
+.cart-c1-product-text-c1-c1-sign{
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.cart-c1-product-text-c1-input{
+    width: 20px;
+    -moz-appearance: textfield;
+    background-color: transparent;
+    border: 0px;
+    color:white;
+    font-family: var(--secondary-font);
+    text-align: center;
+    &:focus{
+        outline: none;
+    }
+}
+
+.cart-c2{
+    align-self: self-start;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cart-c2-h2{
+    font-size: var(--standard-heading-font-size-mobile);
+    font-weight: 500;
+}
+
+.cart-c2-button{
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 10px;
+    font-size: var(--standard-font-size-mobile);
+    font-family: var(--secondary-font);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.cart-c2-button:hover{
+    background-color: white;
+    color: black;
+}
+
+.cart-c2-desktop{
+    display: none;
+}
+
+@media (min-width:768px) {
+    .cart-main{
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+    }
+    .cart-c1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: max-content;
+    }
+    .cart-c1-product{
+        border:0px;
+        align-items: center;
+
+    }
+    .cart-bin{
+        margin-left: 10px;
+        align-self: center;
+    }
+    .cart-c1-product-text{
+        width: 100%;
+    }
+    .cart-c1-i1{
+        width: 300px;
+        
+        max-width: none;
+        height: auto
+    }
+    .cart-c2{
+        align-self: center;
+        display: flex;
+        justify-content: center;
+        width: max-content;
+        gap: 20px;
+        font-size: var(--standard-font-size-tablet);
+
+
+    }
+   
+}
+
+.cart-empty{
+    color: white;
+    font-family: var(--secondary-font);
+    font-size: var(--standard-font-size-mobile);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 50px;
+}
+.cart-empty-h1{
+    font-size: var(--standard-heading-font-size-mobile);
+    font-weight: 500;;
+}
+.cart-text1{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    opacity: 0.6;
+}
+.cart-text1-arrow{
+    height: 20px;
+    width: auto;
+}
+.cart-text1-p{
+    font-family: var(--secondary-font);
+    font-size: var(--standard-font-size-mobile);
+    font-weight: 300;
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.cart-produkt-nazwa{
+    text-decoration: underline;
+    cursor: pointer;
+    text-decoration-thickness: 0.5px;
+}
