@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../styles/BuyProduct.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { priceToInt, intToPrice } from "./Cart";
 import {koszyk} from "./Home";
 function BuyProduct() {
     const [productCount, setProductCount] = useState(1);
@@ -43,7 +44,7 @@ function BuyProduct() {
         const product = { ...produkt, ilosc: productCount };
         koszyk.forEach((element) => {
             if (element.id === produkt.id) {
-                element.ilosc += productCount;
+                element.ilosc = element.ilosc + productCount;
                 alreadyInCart=true;
                 localStorage.setItem('koszyk', JSON.stringify(koszyk));
                 navigate("/cart");
@@ -92,7 +93,7 @@ function BuyProduct() {
                                     type="number"
                                     className="buy-product-c1-c2-form1-i1"
                                     value={productCount}
-                                    onChange={(e) => setProductCount(e.target.value)}
+                                    onChange={(e) => setProductCount(parseInt(e.target.value))}
                                 />
                                 <button className="buy-product-c1-c2-form1-b1"  type="submit"> 
                                     Dodaj do koszyka

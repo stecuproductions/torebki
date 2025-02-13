@@ -141,3 +141,20 @@
     background-color: white !important;
     color: black !important;
 }
+
+@media (min-width:768px) {
+    .finalization{
+        font-size: var(--standard-font-size-tablet);
+        flex-direction: row;
+        justify-self: center;
+        align-items: flex-start;
+        align-content: flex-start;
+        width: 50%;;
+    }
+    .finalization{
+        width: 30%;
+    }
+    .finalization-form-main{
+        width: 100%;
+    }
+}
