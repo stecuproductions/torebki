@@ -1,10 +1,8 @@
 import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { koszyk } from "./Home";
-import "../styles/Finalization.css";
 import {priceToInt, intToPrice } from "./Cart";
-
-
+import "../styles/Finalize.css";
 
 export default function Finalization() {
   function calculateTotalPrice(){
