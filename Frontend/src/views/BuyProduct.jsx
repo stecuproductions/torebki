@@ -57,7 +57,6 @@ function BuyProduct() {
         localStorage.setItem('koszyk', JSON.stringify(koszyk));
         navigate("/cart");
         
-        
     }
 
     return (
@@ -89,6 +88,7 @@ function BuyProduct() {
                             <form className="buy-product-c1-c2-form1"  onSubmit={handleSubmit}>
                                 <label className="buy-product-c1-c2-form1-l1">Sztuk</label>
                                 <input
+                                    min="1"
                                     type="number"
                                     className="buy-product-c1-c2-form1-i1"
                                     value={productCount}

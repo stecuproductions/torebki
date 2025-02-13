@@ -7,7 +7,7 @@ import Footer from "./views/Footer";
 import Cart from "./views/Cart";
 import "./styles/home.css";
 import ColorPicker from "./views/ColorPicker";
-
+import Finalization from "./views/Finalization";
 function App() {
 
   return (
@@ -17,6 +17,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<BuyProduct />}/>
         <Route path="/cart" element={<Cart />}/>
+        <Route path="*" element={<Home />} />
+        <Route path="/finalize" element={<Finalization/>}/>
       </Routes>
       <Footer/>
       <ColorPicker/>

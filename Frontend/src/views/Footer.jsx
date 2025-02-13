@@ -45,9 +45,9 @@ function Footer(){
                             <h2 className='s4-newsletter-text-header'>Zapisz się do newslettera</h2>
                             <p>Podaj swój e-mail</p>
                         </div>
-                        <form action="">
-                            <input type="email" name="email" id="email" data-aos="fade-right" autoComplete='off' placeholder="" />
-                            <button id="s4-newsletter-form-1-button" type="submit" data-aos="fade-left">SUBSKRYBUJ</button>
+                        <form action="" data-aos="fade-right">
+                            <input type="email" name="email" id="email"  data-aos="fade-right" autoComplete='off' placeholder="" />
+                            <button id="s4-newsletter-form-1-button" type="submit">SUBSKRYBUJ</button>
                         </form>
                     </div>
 

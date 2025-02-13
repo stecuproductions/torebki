@@ -2,24 +2,7 @@ import { koszyk } from "./Home";
 import React, { useState } from "react";
 import "../styles/Cart.css";
 import { useNavigate } from "react-router-dom"; 
-
-function Cart() {
-    const navigate = useNavigate();
-    const [totalPrice, setTotalPrice] = useState(() => {
-        let totalPrice = 0;
-        for(let i = 0; i < koszyk.length; i++) {
-            totalPrice += priceToInt(koszyk[i].cena) * koszyk[i].ilosc;
-        }
-        return totalPrice;
-    });
-    function calculateTotalPrice() {
-        let funcPrice = 0;
-        for (let i = 0; i < koszyk.length; i++) {
-            funcPrice += priceToInt(koszyk[i].cena) * koszyk[i].ilosc;
-        }
-        setTotalPrice(funcPrice);
-    }
-  function priceToInt(price) {
+function  priceToInt(price) {
     return parseInt(price.replace(" ", "").replace("", ""));
   }
   function intToPrice(num) {
@@ -28,6 +11,24 @@ function Cart() {
     const formattedIntPart = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     return formattedIntPart + "," + decimalPart;
   }
+  function  calculateTotalPrice() {
+    let funcPrice = 0;
+    for (let i = 0; i < koszyk.length; i++) {
+        funcPrice += priceToInt(koszyk[i].cena) * koszyk[i].ilosc;
+    }
+    setTotalPrice(funcPrice);
+}
+
+function Cart() {
+    const navigate = useNavigate();
+    const  [totalPrice, setTotalPrice] = useState(() => {
+        let totalPrice = 0;
+        for(let i = 0; i < koszyk.length; i++) {
+            totalPrice += priceToInt(koszyk[i].cena) * koszyk[i].ilosc;
+        }
+        return totalPrice;
+    });
+
 
   // Inicjalizujemy stan dla liczników – przyjmujemy, że każdy produkt zaczyna od wartości z produktu lub 1
   const [formCounts, setFormCounts] = useState(() => {
@@ -57,6 +58,13 @@ const handleDeleteProduct = (index) => {
     });
     calculateTotalPrice();
 };
+
+const handleClick = () => {
+    window.scrollTo(0, 0);
+    navigate("/finalize");
+}
+
+
 
 if (koszyk.length!=0){ return (
     <div className="cart-main">
@@ -92,7 +100,7 @@ if (koszyk.length!=0){ return (
         <div className="cart-c2">
                     <h1 className="cart-c2-h2">Podsumowanie zamówienia</h1>
                      <p className="cart-c2-p">Razem {intToPrice(totalPrice)} zł</p>
-                     <button className="cart-c2-button">Zamów</button>
+                     <button className="cart-c2-button" onClick={handleClick}>Zamów</button>
         </div>
     </div>
 );
@@ -110,4 +118,5 @@ else {
 }
 }
 
+export { priceToInt , intToPrice };
 export default Cart;

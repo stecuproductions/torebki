@@ -16,6 +16,8 @@
     "aos": "^2.3.4",
     "browser-image-compression": "^2.0.2",
     "framer-motion": "^12.4.2",
+    "node": "^22.14.0",
+    "npm": "^11.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.5"
