@@ -1,4 +1,5 @@
 .cart-main{
+    padding-top:var(--first-padding);
     color: white;
     display: flex;
     flex-direction: column;
@@ -163,6 +164,7 @@
 }
 
 .cart-empty{
+    padding-top:var(--first-padding);
     color: white;
     font-family: var(--secondary-font);
     font-size: var(--standard-font-size-mobile);
@@ -203,3 +205,4 @@
     cursor: pointer;
     text-decoration-thickness: 0.5px;
 }
+

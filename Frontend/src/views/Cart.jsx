@@ -1,7 +1,10 @@
 import { koszyk } from "./Home";
 import React, { useState } from "react";
-import "../styles/Cart.css";
 import { useNavigate } from "react-router-dom"; 
+import "../styles/Cart.css";
+
+
+
 function  priceToInt(price) {
     return parseInt(price.replace(" ", "").replace("", ""));
   }
@@ -11,22 +14,15 @@ function  priceToInt(price) {
     const formattedIntPart = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     return formattedIntPart + "," + decimalPart;
   }
-  function  calculateTotalPrice() {
-    let funcPrice = 0;
-    for (let i = 0; i < koszyk.length; i++) {
-        funcPrice += priceToInt(koszyk[i].cena) * koszyk[i].ilosc;
-    }
-    setTotalPrice(funcPrice);
-}
 
 function Cart() {
     const navigate = useNavigate();
     const  [totalPrice, setTotalPrice] = useState(() => {
-        let totalPrice = 0;
+        let thisTotalPrice = 0;
         for(let i = 0; i < koszyk.length; i++) {
-            totalPrice += priceToInt(koszyk[i].cena) * koszyk[i].ilosc;
+            thisTotalPrice += priceToInt(koszyk[i].cena) * koszyk[i].ilosc;
         }
-        return totalPrice;
+        return thisTotalPrice;
     });
 
 
@@ -38,6 +34,14 @@ function Cart() {
     });
     return initialCounts;
   });
+  function  calculateTotalPrice() {
+    let funcPrice = 0;
+    for (let i = 0; i < koszyk.length; i++) {
+        funcPrice += priceToInt(koszyk[i].cena) * koszyk[i].ilosc;
+    }
+    setTotalPrice(funcPrice);
+}
+ 
 
   const handleCountChange = (index, value) => {
     if (value < 1) {
@@ -57,6 +61,9 @@ const handleDeleteProduct = (index) => {
         return newCounts;
     });
     calculateTotalPrice();
+    if(koszyk.length === 0) {
+        navigate("/empty");
+    }
 };
 
 const handleClick = () => {
@@ -66,7 +73,7 @@ const handleClick = () => {
 
 
 
-if (koszyk.length!=0){ return (
+ return (
     <div className="cart-main">
         <div className="cart-c1">
             {koszyk.map((produkt, index) => (
@@ -104,18 +111,6 @@ if (koszyk.length!=0){ return (
         </div>
     </div>
 );
-}
-else {
-    return (
-        <div className="cart-empty">
-            <p className="cart-empty-h1">Koszyk jest pusty</p>
-            <div  className="cart-text1"  onClick={() => navigate("/")}>
-                        <svg className="cart-text1-arrow" fill="white" height="64px" width="64px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 404.258 404.258" xmlSpace="preserve"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="289.927,18 265.927,0 114.331,202.129 265.927,404.258 289.927,386.258 151.831,202.129 "></polygon> </g></svg>
-                        <p className="cart-text1-p" onClick={()=> {navigate("/")}}>Powrót do strony: Strona główna</p>
-             </div>
-        </div>
-    );
-}
 }
 
 export { priceToInt , intToPrice };

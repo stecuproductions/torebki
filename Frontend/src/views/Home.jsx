@@ -1,10 +1,11 @@
 
 import React, {  useEffect } from "react";
-import "../styles/home.css";
 import AOS from 'aos';
 import Product from "./Product.jsx";
 import './BuyProduct.jsx';
 import 'aos/dist/aos.css';
+import "../styles/home.css";
+
 
 export const  produkty = [
     { key:0, opis:"Torebka czarna 100% Denim", id: 0, nazwa: "Torebka Denim Czarno szara", cena: "1 000,00", zdjecia: [
@@ -22,7 +23,7 @@ export const  produkty = [
     { key:2, opis:"", id: 2, nazwa: "Torebka Denim Czarna", cena: "900,00", zdjecia: [
         "/images/_MG_0241.JPG",
         "images/_MG_0394.JPG",
-    ] }
+    ] },
 ];
 
 const savedCart = localStorage.getItem('koszyk');
@@ -44,7 +45,7 @@ function Home() {
                     <img src="/images/_MG_0295.JPG" alt=""  className='s1-i1'/>
                     <h1 className='s1-h1'>WITAJ!</h1>
                     <div className='s1-text'>
-                        <p>Witaj na naszej stronie</p>
+                        <p className="s1-text-p1">Witaj na naszej stronie</p>
                         <p className='s1-text-p2'>Odkryj unikalne torebki denimowe tworzone z pasją przez naszych projektantów</p>
                     </div>
                     <img className='s1-i2' src="/images/_MG_0327.JPG" alt="" />

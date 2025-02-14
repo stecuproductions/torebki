@@ -169,6 +169,7 @@
 } */
 
 .buy-product-main{
+    padding-top:var(--first-padding) !important;
     display: flex;
     flex-direction: column;
     color: white;

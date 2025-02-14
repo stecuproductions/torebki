@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../styles/navbar.css";
 import { useNavigate } from "react-router-dom";
+import "../styles/navbar.css";
 
 function Navbar() {
 
@@ -11,6 +11,7 @@ function Navbar() {
         
         <nav className="navbar">
             <img src="/images/logo_scraps-01.svg" aos-data="zoom-out" className="navbar-logo" alt="logo"  onClick={ () => navigate("/")}/>
+
 
             <div className="navbar-right">
                 <div className="cart-container" onClick={() => navigate("/cart")}>

@@ -49,6 +49,8 @@ body, html{
     padding: 0px var(--standard-padding-desktop) 0px 0px ;
     width: 100%;
     margin-bottom: 20px;
+    position: fixed;
+    z-index: 1000;
 }
 
 .navbar-logo {

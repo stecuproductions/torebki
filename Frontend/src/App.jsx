@@ -6,8 +6,8 @@ import BuyProduct from "./views/BuyProduct";
 import Footer from "./views/Footer";
 import Cart from "./views/Cart";
 import "./styles/home.css";
-import ColorPicker from "./views/ColorPicker";
 import Finalization from "./views/Finalization";
+import EmptyCart from "./views/EmptyCart";
 function App() {
 
   return (
@@ -19,9 +19,9 @@ function App() {
         <Route path="/cart" element={<Cart />}/>
         <Route path="*" element={<Home />} />
         <Route path="/finalize" element={<Finalization/>}/>
+        <Route path="/empty" element={<EmptyCart/>}/>
       </Routes>
       <Footer/>
-      <ColorPicker/>
       
     </>
   );

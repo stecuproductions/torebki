@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion"; // Import animacji
 import { useNavigate } from "react-router-dom";
-import "../styles/home.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "../styles/home.css";
+
 
 function Product({ id ,nazwa, cena, zdjecia }) {
     const navigate = useNavigate();
@@ -32,7 +33,7 @@ function Product({ id ,nazwa, cena, zdjecia }) {
             <div className="p-c1">
                 <svg  className="arrow" width="32" height="56" viewBox="0 0 8 14" fill="none" onClick={prevImage}
                      xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 13L1 7L7 1" stroke="black" strokeOpacity="0.8" strokeWidth="1.5" strokeLinecap="round"
+                    <path d="M7 13L1 7L7 1" stroke="black" className="arrowStroke" strokeOpacity="0.8" strokeWidth="1.5" strokeLinecap="round"
                           strokeLinejoin="round"/>
                 </svg>
 
@@ -67,7 +68,7 @@ function Product({ id ,nazwa, cena, zdjecia }) {
                 <svg  className="arrow" width="32" height="56" viewBox="0 0 8 14" fill="none" onClick={nextImage}
                      xmlns="http://www.w3.org/2000/svg">
                     <g transform="rotate(180, 4, 7)">
-                        <path d="M7 13L1 7L7 1" stroke="black" strokeOpacity="0.8" strokeWidth="1.5" strokeLinecap="round"
+                        <path d="M7 13L1 7L7 1" className="arrowStroke" stroke="black" strokeOpacity="0.8" strokeWidth="1.5" strokeLinecap="round"
                               strokeLinejoin="round"/>
                     </g>
                 </svg>

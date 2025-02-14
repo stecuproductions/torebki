@@ -1,10 +1,11 @@
 import React, { useEffect,useState, useRef } from "react";
 import { produkty } from "./Home";
 import { useParams, useNavigate } from "react-router-dom";
-import "../styles/BuyProduct.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {koszyk} from "./Home";
+import "../styles/BuyProduct.css";
+
 function BuyProduct() {
     const [productCount, setProductCount] = useState(1);
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
