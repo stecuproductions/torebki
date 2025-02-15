@@ -1,18 +1,20 @@
-import React, { useEffect,useState, useRef } from "react";
+import React, { useEffect,useState, useRef, useContext } from "react";
 import { produkty } from "./Home";
 import { useParams, useNavigate } from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import {koszyk} from "./Home";
 import "../styles/BuyProduct.css";
+import { CartContext } from "../CartContext";
 
 function BuyProduct() {
+    const { cart, addProductToCart } = useContext(CartContext);
     const [productCount, setProductCount] = useState(1);
+
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
     const navigate = useNavigate();
     const { id } = useParams();
     const urlId = Number(id);
-    const produkt = produkty.find(produkt => produkt.id === urlId);
+    var produkt = produkty.find(produkt => produkt.id === urlId);
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -37,28 +39,21 @@ function BuyProduct() {
             }
         }
     }
-
     function handleSubmit(e) {
-        var alreadyInCart=false;
-        window.scrollTo(0, 0);
-        const product = { ...produkt, ilosc: productCount };
-        koszyk.forEach((element) => {
-            if (element.id === produkt.id) {
-                element.ilosc += productCount;
-                alreadyInCart=true;
-                localStorage.setItem('koszyk', JSON.stringify(koszyk));
-                navigate("/cart");
-            }
-        })
-        if (alreadyInCart){
-            return;
+        e.preventDefault();
+        produkt= {...produkt, ilosc: parseInt(productCount)};
+        for (let i=0; i<productCount; i++){
+            addProductToCart(produkt);
         }
-        
-        koszyk.push(product);
-        localStorage.setItem('koszyk', JSON.stringify(koszyk));
         navigate("/cart");
-        
+        window.scrollTo(0, 0);
+
     }
+    
+    function handleCountChange(e) {
+        setProductCount(e.target.value);
+    }
+    
 
     return (
 
@@ -93,7 +88,7 @@ function BuyProduct() {
                                     type="number"
                                     className="buy-product-c1-c2-form1-i1"
                                     value={productCount}
-                                    onChange={(e) => setProductCount(e.target.value)}
+                                    onChange={handleCountChange}
                                 />
                                 <button className="buy-product-c1-c2-form1-b1"  type="submit"> 
                                     Dodaj do koszyka

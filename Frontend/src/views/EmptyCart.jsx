@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/Cart.css";
+import { useNavigate } from "react-router-dom";
 export default function EmptyCart() {
+    const navigate=useNavigate();
 return (
 <div className="cart-empty">
     <p className="cart-empty-h1">Koszyk jest pusty</p>

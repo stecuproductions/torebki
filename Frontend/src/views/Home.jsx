@@ -4,7 +4,6 @@ import AOS from 'aos';
 import Product from "./Product.jsx";
 import './BuyProduct.jsx';
 import 'aos/dist/aos.css';
-import "../styles/home.css";
 
 
 export const  produkty = [
@@ -26,8 +25,7 @@ export const  produkty = [
     ] },
 ];
 
-const savedCart = localStorage.getItem('koszyk');
-export const koszyk = savedCart ? JSON.parse(savedCart) : [];
+
 
 function Home() {
 
@@ -56,7 +54,7 @@ function Home() {
                 <div className="s2">
                     <h1 className="s2-h1" data-aos="fade-right">PRODUKTY</h1>
                     <svg width="100%" height="2" viewBox="0 0 100 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                        <line x1="1" y1="1" x2="100" y2="1" stroke="black" stroke-width="1"/>
+                        <line x1="1" y1="1" x2="100" y2="1" stroke="black" strokeWidth="1"/>
                     </svg>
                     <div className='s2-products' >
                         {produkty.map((produkt) => (

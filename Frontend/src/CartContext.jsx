@@ -1,0 +1,70 @@
+import React, { createContext, use, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+export const CartContext = createContext();
+
+export const CartProvider = ({ children }) => {
+    const navigate = useNavigate();
+    const [cart, setCart] = useState([]);
+
+    function addProductToCart(product) {
+        for (let i=0; i<cart.length; i++){
+            if (cart[i].id===product.id){
+                cart[i].ilosc+=1;
+                setCart([...cart]);
+                return;
+            }
+        }
+        setCart([...cart, product]);
+    }
+
+    const [totalPrice, setTotalPrice] = useState(0);
+
+
+    function removeProductFromCart(product) {
+        const newCart=cart.filter(item=>item.id!==product.id);
+        setCart(newCart);
+        if (newCart.length===0){
+            navigate("/empty");
+        }
+    }
+    
+    function decreaseProductQuantity(product) {
+        if (product.ilosc===1){
+            removeProductFromCart(product);
+            return;
+        }
+        const newCart=cart.map(item => {
+            return item.id===product.id ? {...item, ilosc:item.ilosc-1}:item;
+        });
+        setCart(newCart);
+    }
+
+    const priceToFloat = (price) => {
+        return parseFloat(price.replace(" ", "").replace(",", "."));
+    };
+
+    const floatToPrice = (num) => {
+        const fixed = num.toFixed(2);
+        fixed.replace(".", ",");
+        const [intPart, floatPart]= fixed.split(".");
+        const formattedIntPart = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, " "); 
+        return formattedIntPart + "," + floatPart;
+
+    };
+
+    useEffect(() => {
+        var newTotalPrice=0;
+        cart.forEach((product) => {
+            newTotalPrice += priceToFloat(product.cena) * product.ilosc;
+        });
+        setTotalPrice(newTotalPrice);
+    }, [cart]);
+    return (
+        <CartContext.Provider
+            value={{ cart, setCart, addProductToCart, removeProductFromCart, priceToFloat, floatToPrice, totalPrice, decreaseProductQuantity }}
+        >
+            {children}
+        </CartContext.Provider>
+    );
+};
