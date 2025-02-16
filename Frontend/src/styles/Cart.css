@@ -87,6 +87,11 @@
         outline: none;
     }
 }
+.cart-c1-product-text-c1-input::-webkit-inner-spin-button,
+.cart-c1-product-text-c1-input::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Chrome, Safari, Edge */
+    margin: 0;
+}
 
 .cart-c2{
     align-self: self-start;

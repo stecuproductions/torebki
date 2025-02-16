@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/navbar.css";
+import { CartContext } from "../CartContext";
 
 function Navbar() {
-
     const navigate = useNavigate();
-
-    
+    const { cart } = useContext(CartContext);
+    console.log(cart);
     return (
         
         <nav className="navbar">
@@ -14,7 +14,7 @@ function Navbar() {
 
 
             <div className="navbar-right">
-                <div className="cart-container" onClick={() => navigate("/cart")}>
+                <div className="cart-container" onClick={() => {cart.length >= 1  ? navigate("/cart") : navigate("/empty")}}>
                     <p>1</p>
                     <img src="/images/cart.svg" alt="cart" />
                 </div>

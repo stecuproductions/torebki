@@ -13,8 +13,9 @@ function App() {
 
   return (
     <>
+    <CartProvider>
+
       <Navbar />
-      <CartProvider>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<BuyProduct />}/>

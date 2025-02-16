@@ -1,4 +1,4 @@
-import React, { createContext, use, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const CartContext = createContext();
@@ -27,6 +27,11 @@ export const CartProvider = ({ children }) => {
         if (newCart.length===0){
             navigate("/empty");
         }
+    }
+    function deleteProductFromCart(product) {
+        const newCart=cart.filter(item=>item.id!=product.id);
+        setCart(newCart);
+        newCart.length===0 && navigate("/empty");
     }
     
     function decreaseProductQuantity(product) {
@@ -62,7 +67,7 @@ export const CartProvider = ({ children }) => {
     }, [cart]);
     return (
         <CartContext.Provider
-            value={{ cart, setCart, addProductToCart, removeProductFromCart, priceToFloat, floatToPrice, totalPrice, decreaseProductQuantity }}
+            value={{ cart, setCart, addProductToCart, removeProductFromCart, priceToFloat, floatToPrice, totalPrice, decreaseProductQuantity, deleteProductFromCart }}
         >
             {children}
         </CartContext.Provider>
