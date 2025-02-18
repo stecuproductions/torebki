@@ -96,7 +96,7 @@
     width: 100%;
     text-align: center;
 }
-.finalization-form-header h1{
+.finalization-form-header legend{
     font-size:calc(var(--strandard-heading-font-size-mobile) - 10px);
     font-family: var(--standard-font);
     font-weight: 400;
@@ -184,7 +184,7 @@
     .finalization-summary-product-image{
         width: 120px;
     }
-    .finalization-form-header h1, .finalization-summary-header h1{
+    .finalization-form-header legend, .finalization-summary-header h1{
         border-bottom: none;
     }
     .finalization-divider{
@@ -199,3 +199,44 @@
     }
 }
 
+
+
+/* Dla Chrome, Edge, Safari */
+/* Dla Chrome, Edge, Safari */
+input:-webkit-autofill {
+    background-color: #222 !important; /* Ciemne tło */
+    color: white !important; /* Biały tekst */
+    -webkit-text-fill-color: white !important; /* Wymusza kolor tekstu */
+    transition: background-color 5000s ease-in-out 0s; /* Zapobiega miganiu */
+}
+
+/* Firefox */
+input:-moz-autofill {
+    background-color: #222 !important;
+    color: white !important;
+    -moz-text-fill-color: white !important;
+}
+
+select {
+    color: white; /* Tekst w select */
+    background-color: #222; /* Tło select */
+    appearance: none; /* Usuwa domyślny wygląd */
+    -webkit-appearance: none; /* Usuwa wygląd w Safari/Chrome */
+    -moz-appearance: none; /* Usuwa wygląd w Firefox */
+    padding-right: 20px; /* Dodatkowy padding dla strzałki */
+    
+}
+
+select:active{
+    outline: none;
+}
+select:focus{
+    outline: none;
+}
+
+.finalization-form-address{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

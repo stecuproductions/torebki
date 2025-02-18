@@ -5,8 +5,10 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
     const navigate = useNavigate();
-    const [cart, setCart] = useState([]);
-
+    const [cart, setCart] = useState(() => {
+        const localData = localStorage.getItem("cart");
+        return localData ? JSON.parse(localData) : [];
+    });
     function addProductToCart(product) {
         for (let i=0; i<cart.length; i++){
             if (cart[i].id===product.id){
@@ -64,6 +66,8 @@ export const CartProvider = ({ children }) => {
             newTotalPrice += priceToFloat(product.cena) * product.ilosc;
         });
         setTotalPrice(newTotalPrice);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        
     }, [cart]);
     return (
         <CartContext.Provider

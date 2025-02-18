@@ -44,13 +44,13 @@ function Footer(){
                             <p>78-345 Warszafka</p>
                         </div>
                     </div>
-                    <div className='s4-newsletter'>
-                        <div className='s4-newsletter-text' data-aos="fade-right">
+                    <div className='s4-newsletter' data-aos="fade-right">
+                        <div className='s4-newsletter-text' >
                             <h2 className='s4-newsletter-text-header'>Zapisz się do newslettera</h2>
                             <p>Podaj swój e-mail</p>
                         </div>
-                        <form action="" data-aos="fade-right">
-                            <input type="email" name="email" id="email"  data-aos="fade-right" autoComplete='off' placeholder="" />
+                        <form action="" >
+                            <input type="email" name="email" id="email"  placeholder="" />
                             <button id="s4-newsletter-form-1-button" type="submit">SUBSKRYBUJ</button>
                         </form>
                     </div>

@@ -6,7 +6,6 @@ import { CartContext } from "../CartContext";
 function Navbar() {
     const navigate = useNavigate();
     const { cart } = useContext(CartContext);
-    console.log(cart);
     return (
         
         <nav className="navbar">

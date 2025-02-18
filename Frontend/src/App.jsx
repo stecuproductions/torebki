@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./views/Home";
 import Navbar from "./views/navbar";
@@ -9,16 +9,33 @@ import Cart from "./views/Cart";
 import Finalization from "./views/Finalization";
 import EmptyCart from "./views/EmptyCart";
 import  {CartProvider}  from "./CartContext";
+import { HelmetProvider } from "react-helmet-async";
+
+
+
 function App() {
+     const [produktyState, setProdukty] = useState([]);
+  
+      useEffect(() => {
+        async function getData() {
+          const response = await fetch("/api/produkty");
+          const data = await response.json();
+          setProdukty(data);
+        }
+        getData();
+      }, []);
+
+      const produkty=produktyState;
+
 
   return (
     <>
-    <CartProvider>
-
-      <Navbar />
+    <HelmetProvider>
+      <CartProvider>
+          <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/product/:id" element={<BuyProduct />}/>
+          <Route path="/" element={<Home produkty={produkty}/>} />
+          <Route path="/product/:id" element={<BuyProduct produkty={produkty} />}/>
           <Route path="/cart" element={<Cart />}/>
           <Route path="*" element={<Home />} />
           <Route path="/finalize" element={<Finalization/>}/>
@@ -26,7 +43,9 @@ function App() {
         </Routes>
         <Footer/>
       </CartProvider>
-      
+    </HelmetProvider>
+
+    
     </>
   );
 }

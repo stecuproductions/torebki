@@ -1,12 +1,11 @@
 import React, { useEffect,useState, useRef, useContext } from "react";
-import { produkty } from "./Home";
 import { useParams, useNavigate } from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import "../styles/BuyProduct.css";
 import { CartContext } from "../CartContext";
 
-function BuyProduct() {
+function BuyProduct({produkty}) {
     const { cart, addProductToCart } = useContext(CartContext);
     const [productCount, setProductCount] = useState(1);
 
@@ -14,7 +13,13 @@ function BuyProduct() {
     const navigate = useNavigate();
     const { id } = useParams();
     const urlId = Number(id);
-    var produkt = produkty.find(produkt => produkt.id === urlId);
+
+   
+    var produkt = produkty.find((produkt) => produkt.id === urlId);
+
+
+
+
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -53,7 +58,7 @@ function BuyProduct() {
     function handleCountChange(e) {
         setProductCount(e.target.value);
     }
-    
+  
 
     return (
 
