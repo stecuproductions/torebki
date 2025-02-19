@@ -10,11 +10,10 @@ const { Client } = pkg;
 dotenv.config({ path: path.resolve('../.env') })
 
 const db = new Client({
-    host: process.env.HOST,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE,
-    port: process.env.DB_PORT || 5432 // Domyślny port PostgreSQL
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false, // Railway wymaga SSL
+    }
 });
 
 
@@ -68,5 +67,5 @@ app.get('*', (req, res) => {
 });
 
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Serwer działa na http://localhost:${PORT}`));
