@@ -4,9 +4,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import "../styles/BuyProduct.css";
 import { CartContext } from "../CartContext";
+import { API_URL } from "../App";
 
 function BuyProduct({produkty}) {
-    const { cart, addProductToCart } = useContext(CartContext);
+    const { cart, addProductToCart, floatToPrice } = useContext(CartContext);
     const [productCount, setProductCount] = useState(1);
 
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
@@ -70,7 +71,7 @@ function BuyProduct({produkty}) {
                     </div>
                     <div className="buy-product-c1" >
                         <div className="buy-product-c1-c1">
-                            <img className="buy-product-c1-c1-i1" src={produkt.zdjecia[currentPhotoIndex]} alt="" onTouchStart={handleSwipeStart} onTouchEnd={handleSwipeEnd}/>
+                            <img className="buy-product-c1-c1-i1" src={`${API_URL}${produkt.zdjecia[currentPhotoIndex]}`} alt="" onTouchStart={handleSwipeStart} onTouchEnd={handleSwipeEnd}/>
                             <div className="buy-product-c1-c1-scrollCircles">
                                 {produkt.zdjecia.map((_, index) =>
                                     <span
@@ -84,7 +85,7 @@ function BuyProduct({produkty}) {
                         <div className="buy-product-c1-c2">
                             <div className="buy-product-c1-c2-text1">
                                 <h1 className="buy-product-c1-c2-text1-h1">{produkt.nazwa}</h1>
-                                <p className="buy-product-c1-c2-text1-p">{produkt.cena} zł</p>
+                                <p className="buy-product-c1-c2-text1-p">{floatToPrice(produkt.cena)} zł</p>
                             </div>
                             <form className="buy-product-c1-c2-form1"  onSubmit={handleSubmit}>
                                 <label className="buy-product-c1-c2-form1-l1">Sztuk</label>

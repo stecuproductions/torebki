@@ -7,12 +7,12 @@ import pkg from 'pg';
 const { Client } = pkg;
 
 
-dotenv.config({ path: path.resolve('../.env') })
+dotenv.config()
 
 const db = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
-        rejectUnauthorized: false, // Railway wymaga SSL
+        rejectUnauthorized: false, 
     }
 });
 
@@ -28,34 +28,51 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static(frontendPath));
-
-
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
 
 app.get("/api/produkty", async (req, res) => {
-    console.log("Pobieranie produktów z bazy danych");
-    const produkty = [
-             { key:0, opis:"Torebka czarna 100% Denim", id: 0, nazwa: "Torebka Denim Czarno szara", cena: "1 000,00", zdjecia: [
-                "/images/products/p0/p0_0.JPG",
-                "/images/products/p0/p0_1.JPG",
-                "/images/products/p0/p0_2.JPG",
-        
-             ]},
-            
-             {key: 1, opis:"",  id: 1, nazwa: "Torebka Denim Szara", cena: "800,00", zdjecia: [
-                "/images/products/p1/p1_0.JPG",
-                "/images/products/p1/p1_1.JPG",
-             ]},
-         ];
-        
-        res.json(produkty);
+    try {
+        const result = (await db.query('SELECT * FROM products')).rows;
+
+        const products = await Promise.all(result.map(async product => {
+            const imagesResult = await db.query('SELECT img_path FROM images WHERE prod_id = $1', [product.id]);
+            return { 
+                ...product, 
+                zdjecia: imagesResult.rows.map(row => row.img_path) 
+            };
+        }));
+
+
+        res.json(products); 
+    }   
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Błąd serwera" });
+    }
 });
- 
+
+app.post("/api/login", async (req, res) => {
+    try{
+        const {password}= req.body;
+        if (password === process.env.ADMIN_PASSWORD) {
+            res.json({ ok: true });
+        } else {
+            res.status(401).json({ ok: false });
+        }
+    } 
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Błąd serwera" });
+    }
+});
+
 
 
 
 
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Serwer działa na http://localhost:${PORT}`));
+app.listen(PORT, "0.0.0.0", () => console.log(`🚀 Serwer działa na porcie ${PORT}`));
+

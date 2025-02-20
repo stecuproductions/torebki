@@ -4,7 +4,7 @@ import AOS from "aos";
 import 'aos/dist/aos.css';
 import "../styles/Finalize.css";
 import { CartContext } from "../CartContext";
-
+import { API_URL } from "../App";
 export default function Finalization() {
   const { cart, totalPrice, floatToPrice } = useContext(CartContext);
 
@@ -61,11 +61,11 @@ export default function Finalization() {
          {cart.map((product) => (
           <div className="finalization-summary-product" key={product.key}>
             <div className="finalization-summary-product-image">
-              <img src={product.zdjecia[0]} />
+              <img src={`${API_URL}${product.zdjecia[0]}`} />
             </div>
             <div className="finalization-summary-product-details">
               <h2 onClick={()=>{const toNavigate="/product/" +product.id ; navigate(toNavigate)}}>{product.nazwa}</h2>
-              <p>Cena: {product.cena} zł</p>
+              <p>Cena: {floatToPrice(product.cena)} zł</p>
               <p>Ilość: {product.ilosc}</p>
             </div>
           </div>
@@ -87,7 +87,7 @@ export default function Finalization() {
           <fieldset className="finalization-form-address">
             <div className="finalization-form-address1">
               <input aria-label="Miasto" type="text" placeholder="Miasto" name="miasto" value={formData.miasto} onChange={(e) => handleInputChange(e)} required={true}/>
-              <input aria-label="Kod Pocztowy" type="text" placeholder="Kod Pocztowy" name="kodPocztowy" value={formData.kodPocztowy} onChange={(e) => handleInputChange(e)} reqUired={true} />
+              <input aria-label="Kod Pocztowy" type="text" placeholder="Kod Pocztowy" name="kodPocztowy" value={formData.kodPocztowy} onChange={(e) => handleInputChange(e)} required={true} />
             </div>
             <div className="finalization-form-address2">
               <input aria-label="Ulica" type="text" placeholder="Ulica" name="ulica" value={formData.ulica} onChange={(e) => handleInputChange(e)} />

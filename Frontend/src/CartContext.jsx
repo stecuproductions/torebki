@@ -20,6 +20,7 @@ export const CartProvider = ({ children }) => {
         setCart([...cart, product]);
     }
 
+    
     const [totalPrice, setTotalPrice] = useState(0);
 
 
@@ -63,7 +64,7 @@ export const CartProvider = ({ children }) => {
     useEffect(() => {
         var newTotalPrice=0;
         cart.forEach((product) => {
-            newTotalPrice += priceToFloat(product.cena) * product.ilosc;
+            newTotalPrice += product.cena * product.ilosc;
         });
         setTotalPrice(newTotalPrice);
         localStorage.setItem("cart", JSON.stringify(cart));

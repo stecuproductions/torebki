@@ -12,14 +12,13 @@ import  {CartProvider}  from "./CartContext";
 import { HelmetProvider } from "react-helmet-async";
 import Admin from "./views/Admin";
 
-const API_URL = import.meta.env.VITE_APP_API_URL;
-
+export const API_URL = import.meta.env.VITE_APP_API_URL;
+//export const API_URL = "http://192.168.18.230:5000";
 function App() {
      const [produktyState, setProdukty] = useState([]);
   
       useEffect(() => {
         async function getData() {
-          console.log(API_URL);
           const response = await fetch(`${API_URL}/api/produkty`);
           const data = await response.json();
           setProdukty(data);
@@ -29,6 +28,10 @@ function App() {
 
       const produkty=produktyState;
 
+
+  if (produkty.length === 0) {
+    return <span className="loader"></span>;
+  }
 
   return (
     <>
@@ -41,7 +44,7 @@ function App() {
           <Route path="/cart" element={<Cart />}/>
           <Route path="/finalize" element={<Finalization/>}/>
           <Route path="/empty" element={<EmptyCart/>}/>
-          <Route path="/admin" element={<Admin/>}/>
+          <Route path="/admin" element={<Admin produkty={produkty}/>}/>          
         </Routes>
         <Footer/>
       </CartProvider>

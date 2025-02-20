@@ -5,7 +5,7 @@ import Product from "./Product.jsx";
 import './BuyProduct.jsx';
 import 'aos/dist/aos.css';
 import { Helmet } from "react-helmet-async";
-
+import {API_URL} from "../App.jsx";
 
 
 

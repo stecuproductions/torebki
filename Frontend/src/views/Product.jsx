@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion"; // Import animacji
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../styles/home.css";
-
+import { CartContext } from "../CartContext";
+import { API_URL } from "../App";
 
 function Product({ id ,nazwa, cena, zdjecia }) {
     const navigate = useNavigate();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState(1); // Kierunek animacji
+
+    const { cart, addProductToCart, priceToFloat,floatToPrice, calculateTotalPrice, totalPrice, decreaseProductQuantity, deleteProductFromCart } = useContext(CartContext);
+    
 
     useEffect(() => {
         AOS.init({
@@ -42,7 +46,7 @@ function Product({ id ,nazwa, cena, zdjecia }) {
                     <AnimatePresence mode="wait">
                         <motion.img
                             key={zdjecia[currentIndex]} // Klucz wymusza odświeżenie obrazu
-                            src={zdjecia[currentIndex]}
+                            src={`${API_URL}${zdjecia[currentIndex]}`}
                             className="p-i1"
                             alt="Produkt"
                             //initial={{ opacity: 0,}} // Start poza ekranem
@@ -75,7 +79,7 @@ function Product({ id ,nazwa, cena, zdjecia }) {
             </div>
             <div className="p-text " onClick={() =>  {window.scrollTo(0, 0); navigate(`/product/${id}`)}}>
                 <h2>{nazwa}</h2>
-                <p>{cena} zł</p>
+                <p>{floatToPrice(cena)} zł</p>
             </div>
         </div>
     );

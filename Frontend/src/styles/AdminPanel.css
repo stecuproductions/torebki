@@ -10,7 +10,7 @@
     color: white;
 
 }
-.admin-panel > form{
+.login-form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,7 +19,7 @@
     width: 100%;
     gap:20px;
 }
-.admin-panel>form>button{
+.login-form button{
     width: 20%;
     padding: 10px;
     border-radius: 20px;
@@ -36,6 +36,46 @@
     padding: 10px;
     border-radius: 20px;
     color: white;
+    &:focus{
+        outline: none;
+    }
+
+}
+
+.add-product-form, .edit-product-form{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap:20px;
+    font-family: "Montserrat";
+    width: 30%;
+}
+.add-product-form input, .add-product-form button, .edit-product-form button{
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    color:white;
+    &:focus{
+        outline: none;
+    }
+
+}
+.add-product-form input[type="file"]{
+    border: none;
+    background-color: transparent;
+    color: white;
+
+}
+
+.edit-product-form select{
+    padding: 10px;
+    background-color: black;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    color:white;
     &:focus{
         outline: none;
     }
