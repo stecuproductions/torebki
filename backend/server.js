@@ -37,21 +37,16 @@ app.get("/api/produkty", async (req, res) => {
     console.log("Pobieranie produktów z bazy danych");
     const produkty = [
              { key:0, opis:"Torebka czarna 100% Denim", id: 0, nazwa: "Torebka Denim Czarno szara", cena: "1 000,00", zdjecia: [
-                "/images/_MG_0508.JPG",
-                "/images/_MG_0228.JPG",
-                 "/images/_MG_0526.JPG"
+                "/images/products/p0/p0_0.JPG",
+                "/images/products/p0/p0_1.JPG",
+                "/images/products/p0/p0_2.JPG",
         
              ]},
             
              {key: 1, opis:"",  id: 1, nazwa: "Torebka Denim Szara", cena: "800,00", zdjecia: [
-                 "/images/_MG_0078.JPG",
-                "/images/_MG_0228.JPG",
+                "/images/products/p1/p1_0.JPG",
+                "/images/products/p1/p1_1.JPG",
              ]},
-            
-             { key: 2, opis:"", id: 2, nazwa: "Torebka Denim Czarna", cena: "900,00", zdjecia: [
-                 "/images/_MG_0241.JPG",
-                 "images/_MG_0394.JPG",
-             ] },
          ];
         
         res.json(produkty);
@@ -60,11 +55,6 @@ app.get("/api/produkty", async (req, res) => {
 
 
 
-
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(frontendPath, 'index.html'));   
-});
 
 
 const PORT = process.env.PORT || 5000;
