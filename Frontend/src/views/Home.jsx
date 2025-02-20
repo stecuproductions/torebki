@@ -64,14 +64,14 @@ function Home({produkty}) {
 
            <section>
                 <div className='s1'>
-                    <img src="/images/_MG_0295.JPG"  alt="Para w jeansowych stylizacjach prezentująca torbę denimową na niebieskim tle"  className='s1-i1'/>
+                    <img src="/images/s1-i1.JPG"  alt="Para w jeansowych stylizacjach prezentująca torbę denimową na niebieskim tle"  className='s1-i1'/>
                     <h1 className='s1-h1'>WITAJ!</h1>
                     <div className='s1-text'>
                         <p className="s1-text-p1">Witaj na naszej stronie</p>
                         <p className='s1-text-p2'>Odkryj unikalne torebki denimowe tworzone z pasją przez naszych projektantów</p>
                     </div>
-                    <img className='s1-i2' src="/images/_MG_0327.JPG" alt="Mężczyzna w jeansowej kurtce i kobieta w czarnej stylizacji z torbami denimowymi na tle artystycznego graffiti" />
-                    <img src="/images/_MG_0144.JPG" className='s1-i3' alt="Mężczyzna w białej koszulce i czarnych spodniach trzymający torbę denimową na niebieskim tle" />
+                    <img className='s1-i2' src="/images/s1-i2.JPG" alt="Mężczyzna w jeansowej kurtce i kobieta w czarnej stylizacji z torbami denimowymi na tle artystycznego graffiti" />
+                    <img src="/images/s1-i3.JPG" className='s1-i3' alt="Mężczyzna w białej koszulce i czarnych spodniach trzymający torbę denimową na niebieskim tle" />
                 </div>
            </section>
            <section>
@@ -90,8 +90,8 @@ function Home({produkty}) {
            <section>
             <div className='s3'>
                 <h1 className='s3-h1'>O NAS</h1>
-                <img className='s3-i1' src="/images/_MG_0131.JPG" alt="Dwie osoby w jeansowych stylizacjach siedzące na białej skrzyni, prezentujące torby denimowe"  data-aos="fade-right"/>
-                <img className='s3-i2' src="/images/_MG_0368.JPG"  alt="Kobieta w białej koszulce i ciemnych spodniach z dużą, czarną torbą denimową na ramieniu"  data-aos="fade-left"/>
+                <img className='s3-i1' src="/images/s3-i1.JPG" alt="Dwie osoby w jeansowych stylizacjach siedzące na białej skrzyni, prezentujące torby denimowe"  data-aos="fade-right"/>
+                <img className='s3-i2' src="/images/s3-i2.JPG"  alt="Kobieta w białej koszulce i ciemnych spodniach z dużą, czarną torbą denimową na ramieniu"  data-aos="fade-left"/>
                 <div className='s3-container'>
                     <div className='s3-text'>
                         <h2 className='s3-h2' data-aos="zoom-in" >Nasza historia</h2>

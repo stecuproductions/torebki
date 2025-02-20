@@ -19,7 +19,6 @@ function App() {
       useEffect(() => {
         async function getData() {
           console.log(API_URL);
-          
           const response = await fetch(`${API_URL}/api/produkty`);
           const data = await response.json();
           setProdukty(data);
