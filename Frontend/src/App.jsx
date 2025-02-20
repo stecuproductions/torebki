@@ -10,6 +10,7 @@ import Finalization from "./views/Finalization";
 import EmptyCart from "./views/EmptyCart";
 import  {CartProvider}  from "./CartContext";
 import { HelmetProvider } from "react-helmet-async";
+import Admin from "./views/Admin";
 
 const API_URL = import.meta.env.VITE_APP_API_URL;
 
@@ -33,14 +34,14 @@ function App() {
     <>
     <HelmetProvider>
       <CartProvider>
-          <Navbar />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home produkty={produkty}/>} />
           <Route path="/product/:id" element={<BuyProduct produkty={produkty} />}/>
           <Route path="/cart" element={<Cart />}/>
-          <Route path="*" element={<Home />} />
           <Route path="/finalize" element={<Finalization/>}/>
           <Route path="/empty" element={<EmptyCart/>}/>
+          <Route path="/admin" element={<Admin/>}/>
         </Routes>
         <Footer/>
       </CartProvider>
