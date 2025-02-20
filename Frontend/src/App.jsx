@@ -11,15 +11,14 @@ import EmptyCart from "./views/EmptyCart";
 import  {CartProvider}  from "./CartContext";
 import { HelmetProvider } from "react-helmet-async";
 
-const API_URL = process.env.REACT_APP_API_URL;
-
+const API_URL = import.meta.env.VITE_APP_API_URL;
 
 function App() {
      const [produktyState, setProdukty] = useState([]);
   
       useEffect(() => {
         async function getData() {
-          const response = await fetch(`${API_URL}/produkty`);
+          const response = await fetch(`${API_URL}/api/produkty`);
           const data = await response.json();
           setProdukty(data);
         }
