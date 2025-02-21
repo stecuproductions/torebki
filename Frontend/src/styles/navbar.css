@@ -54,7 +54,7 @@ body, html{
 }
 
 .navbar-logo {
-    max-width: clamp(110px, 20%, 200px);
+    max-width: clamp(110px, 20%, 130px);
     height: auto;
     animation: leFadeIn 2s;
 }
@@ -71,7 +71,7 @@ body, html{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
+    width: 40px;
     aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: #fff;
@@ -114,7 +114,7 @@ body, html{
         width: 35px;
     }
     .cart-container {
-        width: 40px;
+        width: 35px;
     }
     .navbar-right{
         gap:10px;
@@ -130,7 +130,7 @@ body, html{
         width: 40px;
     }
     .cart-container {
-        width: 50px;
+        width: 40px;
     }
     .navbar-right{
         gap:15px;

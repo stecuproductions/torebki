@@ -15,7 +15,6 @@ function BuyProduct({produkty}) {
     const { id } = useParams();
     const urlId = Number(id);
 
-   
     var produkt = produkty.find((produkt) => produkt.id === urlId);
 
 
@@ -96,9 +95,20 @@ function BuyProduct({produkty}) {
                                     value={productCount}
                                     onChange={handleCountChange}
                                 />
-                                <button className="buy-product-c1-c2-form1-b1"  type="submit"> 
+                                {produkt.stan===0 && 
+                                    <>
+                                        <p style={{color:"red"}} className="product-unaccessible">Produkt niedostępny</p>
+                                        <p className="buy-product-c1-c2-form1-a1" onClick={()=>{
+                                            const newsletterInput= document.getElementById("email");
+                                            newsletterInput.scrollIntoView({behavior: "smooth"});
+                                            newsletterInput.focus();
+                                        }} >Zapisz się do newslettera a powiadomimy cię o jego dostępności!</p>
+                                    </>
+                                }
+                                <button className="buy-product-c1-c2-form1-b1" type="submit"  disabled={produkt.stan===0} style={{display: produkt.stan===0 ?  "none": null}}> 
                                     Dodaj do koszyka
                                 </button>
+                               
                             </form>
                         </div>
                     </div>

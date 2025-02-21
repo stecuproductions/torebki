@@ -52,7 +52,7 @@
     font-family: "Montserrat";
     width: 30%;
 }
-.add-product-form input, .add-product-form button, .edit-product-form button{
+.add-product-form input, .add-product-form button, .edit-product-form button, .edit-product-form input{
     padding: 10px;
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.6);
@@ -80,4 +80,31 @@
         outline: none;
     }
 
+}
+
+.description-field{
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    color:white;
+    &:focus{
+        outline: none;
+    }
+}
+
+.image-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:10px;
+}
+
+.image-container img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-right: 20px;
 }
