@@ -1,5 +1,5 @@
 import express from 'express';
-import multer from "multer";
+import multer from 'multer';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path, { dirname } from 'path';
@@ -13,56 +13,70 @@ dotenv.config();
 
 const db = new Client({
     connectionString: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false },
+    ssl: {
+        rejectUnauthorized: false,
+    },
 });
 
 db.connect();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const frontendPath = path.join(__dirname, '../Frontend/dist');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static(frontendPath));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Konfiguracja `multer` do przesyłania plików
 const storage = multer.diskStorage({
-    destination: async (req, file, cb) => {
-        try {
-            // Pobierz ID produktu, jeśli istnieje
-            let result = await db.query('SELECT id FROM products ORDER BY id DESC LIMIT 1');
-            let newId = result.rows.length ? result.rows[0].id + 1 : 0;
+    destination: (req, file, cb) => {
+        const productId = req.productId;
+        const folderPath = path.join(__dirname, `uploads/products/p${productId}`);
 
-            const uploadPath = path.join(__dirname, `uploads/products/p${newId}`);
-            if (!fs.existsSync(uploadPath)) {
-                fs.mkdirSync(uploadPath, { recursive: true });
-            }
-            cb(null, uploadPath);
-        } catch (error) {
-            console.error("Błąd przy tworzeniu folderu:", error);
-            cb(error, null);
+        if (!fs.existsSync(folderPath)) {
+            fs.mkdirSync(folderPath, { recursive: true });
         }
+        cb(null, folderPath);
     },
     filename: (req, file, cb) => {
-        cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
-    }
+        cb(null, `p${req.productId}_${Date.now()}.jpg`);
+    },
 });
 
 const upload = multer({ storage });
 
-// **📌 Pobieranie produktów z bazy**
+const generateProductId = async (req, res, next) => {
+    try {
+        const firstResult = await db.query('SELECT COUNT(*) AS count FROM products');
+        const count = parseInt(firstResult.rows[0].count);
+        
+        if (count === 0) {
+            const result = await db.query('SELECT nextval(\'"public"."Products_id_seq"\') AS id');
+            req.productId = result.rows[0].id;
+        } else {
+            const result = await db.query('SELECT MAX(id) AS id FROM products');
+            req.productId = result.rows[0].id + 1;
+        }
+
+        next();
+    } catch (error) {
+        console.error("Błąd pobierania ID produktu:", error);
+        return res.status(500).json({ error: "Błąd serwera podczas generowania ID produktu" });
+    }
+};
+
 app.get("/api/produkty", async (req, res) => {
     try {
         const result = (await db.query('SELECT * FROM products')).rows;
+        if (result.length === 0) {
+            return res.json([]);
+        }
 
-        const products = await Promise.all(result.map(async product => {
+        const products = await Promise.all(result.map(async (product) => {
             const imagesResult = await db.query('SELECT img_path FROM images WHERE prod_id = $1', [product.id]);
             return {
                 ...product,
-                zdjecia: imagesResult.rows.map(row => row.img_path)
+                zdjecia: imagesResult.rows.map(row => row.img_path),
             };
         }));
 
@@ -73,7 +87,6 @@ app.get("/api/produkty", async (req, res) => {
     }
 });
 
-// **📌 Logowanie admina**
 app.post("/api/login", async (req, res) => {
     try {
         const { password } = req.body;
@@ -88,45 +101,89 @@ app.post("/api/login", async (req, res) => {
     }
 });
 
-// **📌 Dodawanie produktu do bazy + przesyłanie zdjęć**
-app.post("/api/add-product", upload.array("images", 4), async (req, res) => {
+app.post("/api/add-product", generateProductId, upload.array("images", 4), async (req, res) => {
     try {
-        const { name, price, description, stan } = req.body;
-        if (!name || !price || !description || !stan) {
-            return res.status(400).json({ error: "Brak wymaganych danych!" });
+        const { name, price, description, count, password } = req.body;
+        if (password !== process.env.ADMIN_PASSWORD) {
+            return res.status(401).json({ error: "Niepoprawne hasło" });
         }
+
+        if (!name || !price || !description) {
+            return res.status(400).json({ error: "Brak wymaganych pól" });
+        }
+
+        if (!req.files || req.files.length === 0) {
+            return res.status(400).json({ error: "Brak przesłanych plików" });
+        }
+
+        const filePaths = req.files.map(file => `/uploads/products/p${req.productId}/${file.filename}`);
 
         const result = await db.query(
-            'INSERT INTO products (nazwa, cena, opis, stan) VALUES ($1, $2, $3, $4) RETURNING id',
-            [name, price, description, stan]
+            "INSERT INTO products (nazwa, cena, opis, stan) VALUES ($1, $2, $3, $4) RETURNING id",
+            [name, price, description, parseInt(count)]
         );
+
         const productId = result.rows[0].id;
 
-        const productFolder = `uploads/products/p${productId}`;
-        if (!fs.existsSync(productFolder)) {
-            fs.mkdirSync(productFolder, { recursive: true });
-        }
+        await Promise.all(
+            filePaths.map(filePath => db.query("INSERT INTO images (prod_id, img_path) VALUES ($1, $2)", [productId, filePath]))
+        );
 
-        const imagePaths = req.files.map((file, index) => {
-            const newImagePath = `/uploads/products/p${productId}/p${productId}_${index}.JPG`;
-
-            // Przeniesienie pliku do właściwego folderu
-            fs.renameSync(file.path, path.join(__dirname, newImagePath));
-
-            return newImagePath;
-        });
-
-        await Promise.all(imagePaths.map(imgPath =>
-            db.query('INSERT INTO images (img_path, prod_id) VALUES ($1, $2)', [imgPath, productId])
-        ));
-
-        res.json({ success: true, message: "Produkt dodany!", productId, images: imagePaths });
-
+        res.json({ success: true, message: "Produkt i pliki zapisane!", images: filePaths });
     } catch (error) {
-        console.error("Błąd dodawania produktu:", error);
-        res.status(500).json({ error: "Błąd serwera" });
+        console.error("Błąd zapisu produktu:", error);
+        res.status(500).json({ error: "Błąd serwera podczas zapisu produktu" });
     }
 });
+
+app.post("/api/edit-product", upload.array("images", 4),async (req, res) => {
+    const { name, price, description, count, password, productId } = req.body;
+    let { existingImages } = req.body;
+    const paths = JSON.parse(existingImages).map(image => image.replace(`${process.env.API_URL}`, ""))
+        .filter(image => image !== "");
+
+    if (password !== process.env.ADMIN_PASSWORD) {
+        return res.status(401).json({ error: "Niepoprawne hasło" });
+    }
+
+    try {
+        await db.query("UPDATE products SET nazwa=$1, cena=$2, opis=$3, stan=$4 WHERE id=$5", [name, price, description, parseInt(count), productId]);
+
+        await db.query(
+            "DELETE FROM images WHERE img_path NOT IN (" + paths.map((_, i) => `$${i + 1}`).join(", ") + ") AND prod_id = $" + (paths.length + 1),
+            [...paths, productId]
+        );
+
+        const folderPath= path.join(__dirname, `uploads/products/${paths[0].split("/")[3]}`);
+        fs.readdir(folderPath, (err, files) => {
+            if (err) {
+                console.error("Błąd odczytu folderu:", err);
+                return res.status(500).json({ error: "Błąd serwera podczas odczytu folderu" });
+            }
+
+            files.forEach(file => {
+                if (!paths.map(p => p.split("/")[4]).includes(file)) {  
+                    const filePath = path.join(folderPath, file);
+                    fs.unlink(filePath, (err) => {
+                        if (err) {
+                            console.error("Błąd usuwania pliku:", err);
+                            return res.status(500).json({ error: "Błąd serwera podczas usuwania pliku" });
+                        }
+                    });
+                }
+                
+            });
+        });
+    
+    
+
+        res.json({ success: true, message: "Produkt zaktualizowany!" });
+    } catch (error) {
+        console.error("Błąd aktualizacji produktu:", error);
+        res.status(500).json({ error: "Błąd serwera podczas aktualizacji produktu" });
+    }
+});
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, "0.0.0.0", () => console.log(`🚀 Serwer działa na porcie ${PORT}`));

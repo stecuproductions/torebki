@@ -1,13 +1,17 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 export const CartContext = createContext();
 
-export const CartProvider = ({ children }) => {
+export const CartProvider = ({ children, produkty }) => {
     const navigate = useNavigate();
     const [cart, setCart] = useState(() => {
-        const localData = localStorage.getItem("cart");
-        return localData ? JSON.parse(localData) : [];
+     
+        var localData = localStorage.getItem("cart");
+
+        
+        return localData ? JSON.parse(localData).filter((item)=>item.produkt in produkty) : [];
     });
     function addProductToCart(product) {
         for (let i=0; i<cart.length; i++){

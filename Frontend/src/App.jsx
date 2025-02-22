@@ -12,8 +12,8 @@ import  {CartProvider}  from "./CartContext";
 import { HelmetProvider } from "react-helmet-async";
 import Admin from "./views/Admin";
 
-export const API_URL = import.meta.env.VITE_APP_API_URL;
-//export const API_URL = "http://192.168.18.230:5000";
+//export const API_URL = import.meta.env.VITE_APP_API_URL;
+export const API_URL = "http://192.168.18.230:5000";
 function App() {
      const [produktyState, setProdukty] = useState([]);
   
@@ -29,14 +29,14 @@ function App() {
       const produkty=produktyState;
 
 
-  if (produkty.length === 0) {
+  if (produkty.length === null) {
     return <span className="loader"></span>;
   }
 
   return (
     <>
     <HelmetProvider>
-      <CartProvider>
+      <CartProvider produkty={produkty}>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home produkty={produkty}/>} />
