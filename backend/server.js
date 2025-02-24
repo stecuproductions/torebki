@@ -185,5 +185,35 @@ app.post("/api/edit-product", upload.array("images", 4),async (req, res) => {
 });
 
 
+app.post("/api/newsletter", async (req, res) => {
+    try{
+        const { email } = req.body;
+        const test = await db.query('SELECT * FROM newsletter_subscribers WHERE email=$1', [email]);
+        if (test.rows.length > 0) {
+            return res.status(400).json({ error: "Email już istnieje w bazie" });
+        }
+        const result = await db.query('INSERT INTO newsletter_subscribers (email, created_at) VALUES ($1, NOW())', [email]);
+        return res.status(201).json({ ok: true });
+    }
+    catch(error){
+        console.error("Błąd zapisu do newslettera:", error);
+        return res.status(500).json({ error: "Błąd serwera podczas zapisu do newslettera" });
+    }
+
+});
+
+const API_TOKEN=process.env.API_TOKEN;
+app.get(`/api/newsletterUsers${API_TOKEN}`, async (req, res) => {
+    try{
+        const result = await db.query('SELECT email, created_at FROM newsletter_subscribers');
+        res.json(result.rows);
+    }
+    catch(error){
+        console.error("Błąd pobierania subskrybentów newslettera:", error);
+        return res.status(500).json({ error: "Błąd serwera podczas pobierania subskrybentów newslettera" });
+    }
+});
+
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, "0.0.0.0", () => console.log(`🚀 Serwer działa na porcie ${PORT}`));

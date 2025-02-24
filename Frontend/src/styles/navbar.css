@@ -54,7 +54,7 @@ body, html{
 }
 
 .navbar-logo {
-    max-width: clamp(110px, 20%, 130px);
+    width: clamp(110px, 20%, 130px);
     height: auto;
     animation: leFadeIn 2s;
 }
@@ -79,6 +79,22 @@ body, html{
     flex-direction: column;
     animation: leFadeIn 2s;
 
+}
+.home-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: #fff;
+    position: relative;
+    flex-direction: column;
+    animation: leFadeIn 2s;
+}
+.home-container img{
+    width: 60%;
+    height: auto;
 }
 
 .cart-container p {
@@ -116,6 +132,9 @@ body, html{
     .cart-container {
         width: 35px;
     }
+    .home-container{
+        width: 35px;
+    }
     .navbar-right{
         gap:10px;
     }
@@ -130,6 +149,9 @@ body, html{
         width: 40px;
     }
     .cart-container {
+        width: 40px;
+    }
+    .home-container{
         width: 40px;
     }
     .navbar-right{

@@ -7,7 +7,7 @@ import "../styles/home.css";
 import { CartContext } from "../CartContext";
 import { API_URL } from "../App";
 
-function Product({ id ,nazwa, cena, zdjecia }) {
+function Product({ id ,nazwa, cena, zdjecia, opis }) {
     const navigate = useNavigate();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState(1); // Kierunek animacji
@@ -48,7 +48,7 @@ function Product({ id ,nazwa, cena, zdjecia }) {
                             key={zdjecia[currentIndex]} // Klucz wymusza odświeżenie obrazu
                             src={`${API_URL}${zdjecia[currentIndex]}`}
                             className="p-i1"
-                            alt="Produkt"
+                            alt={opis}
                             //initial={{ opacity: 0,}} // Start poza ekranem
                             // animate={{ opacity: 1, x: 0 }} // Płynnie wchodzi na miejsce
                             // exit={{ opacity: 0, }} // Wychodzi w przeciwną stronę

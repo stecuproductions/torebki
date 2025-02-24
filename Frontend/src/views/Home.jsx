@@ -24,51 +24,18 @@ function Home({produkty}) {
     return (
         <>
             <Helmet>
-                {/* SEO Meta */}
                 <title>Scraps | Ekskluzywne Torebki Denimowe Handmade</title>
-                <meta name="description" content="Kup ekskluzywne torebki denimowe handmade – unikalne, stylowe i ekologiczne. Nasze torebki powstają z najwyższej jakości materiałów i łączą klasykę z nowoczesnym designem. Idealne na każdą okazję – od codziennych stylizacji po wyjątkowe wyjścia. Sprawdź naszą kolekcję i wybierz torebkę, która podkreśli Twój charakter!"/>
-                <meta name="keywords" content="torebki denim, handmade torebki, stylowe torby, moda ekologiczna, unikalne akcesoria, torby z jeansu, denim fashion, torby premium, designerskie torebki, eko torby, polska marka, ręcznie robione torebki"/>  
-                <link rel="canonical" href="https://twojastrona.pl/sklep"/>
-                <meta name="robots" content="index, follow"/>
-
-                {/* Open Graph (Facebook, Messenger) */}
-                <meta property="og:title" content="Scraps | Torebki Denimowe Handmade"/>
-                <meta property="og:description" content="Odkryj unikalne torebki denimowe tworzone ręcznie. Styl, jakość i ekologia w jednym. Kup teraz!"/>
-                <meta property="og:image" content="https://twojastrona.pl/images/torebka-denim.jpg"/>
-                <meta property="og:url" content="https://twojastrona.pl"/>
-                <meta property="og:type" content="website"/>
-                <meta property="og:site_name" content="Scraps"/>
-
-                {/* Twitter Cards */}
-                <meta name="twitter:card" content="summary_large_image"/>
-                <meta name="twitter:title" content="Scraps | Torebki Denimowe Handmade"/>
-                <meta name="twitter:description" content="Odkryj unikalne torebki denimowe tworzone ręcznie. Styl, jakość i ekologia w jednym. Kup teraz!"/>
-                <meta name="twitter:image" content="https://twojastrona.pl/images/torebka-denim.jpg"/>
-                <meta name="twitter:site" content="@TwojaNazwaNaTwitterze"/>
-
-                {/* Schema.org JSON-LD */}
-                <script type="application/ld+json">
-                {JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "Organization",
-                    "name": "Scraps",
-                    "url": "https://twojastrona.pl",
-                    "logo": "https://twojastrona.pl/images/logo.png",
-                    "sameAs": [
-                        "https://www.facebook.com/twojprofil",
-                        "https://www.instagram.com/twojprofil"
-                    ]
-                })}
-                </script>
+                <link rel="canonical" />
+                <meta name="description" content="Unikalne torebki denimowe handmade z recyklingu! Ręcznie robione z odzyskanego jeansu, stylowe i ekologiczne. Kup teraz i nadaj drugie życie denimowi!"/>
             </Helmet>
 
            <section>
                 <div className='s1'>
                     <img src="/images/s1-i1.JPG"  alt="Para w jeansowych stylizacjach prezentująca torbę denimową na niebieskim tle"  className='s1-i1'/>
-                    <h1 className='s1-h1'>TOREBKI DENIMOWE SCRAPS</h1>
+                    <h2 className='s1-h1'>TOREBKI DENIMOWE HANDMADE</h2>
                     <div className='s1-text'>
                         <p className="s1-text-p1">Witaj na naszej stronie</p>
-                        <p className='s1-text-p2'>Odkryj unikalne torebki denimowe tworzone z pasją przez naszych projektantów</p>
+                        <h2 className='s1-text-p2'>Odkryj unikalne torebki denimowe tworzone z pasją przez naszych projektantów</h2>
                     </div>
                     <img className='s1-i2' src="/images/s1-i2.JPG" alt="Mężczyzna w jeansowej kurtce i kobieta w czarnej stylizacji z torbami denimowymi na tle artystycznego graffiti" />
                     <img src="/images/s1-i3.JPG" className='s1-i3' alt="Mężczyzna w białej koszulce i czarnych spodniach trzymający torbę denimową na niebieskim tle" />
@@ -76,22 +43,22 @@ function Home({produkty}) {
            </section>
            <section>
                 <div className="s2">
-                    <h1 className="s2-h1" data-aos="fade-right">PRODUKTY</h1>
+                    <h2 className="s2-h1" data-aos="fade-right">PRODUKTY</h2>
                     <svg width="100%" height="2" viewBox="0 0 100 2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                         <line x1="1" y1="1" x2="100" y2="1" stroke="black" strokeWidth="1"/>
                     </svg>
-                    <div className='s2-products' >
-                        {produkty &&  produkty.map((produkt) => (
-                                <Product  className="Product" key={produkt.key} id={produkt.id} nazwa={produkt.nazwa} cena={produkt.cena} zdjecia={produkt.zdjecia} />
-                        ))}
-                    </div>
+                        <div className='s2-products' >
+                            {produkty &&  produkty.map((produkt) => (
+                                    <Product   className="Product" key={produkt.key} id={produkt.id} nazwa={produkt.nazwa} cena={produkt.cena} zdjecia={produkt.zdjecia} opis={produkt.opis} />
+                            ))}
+                        </div>
                 </div>
            </section>
            <section>
             <div className='s3'>
-                <h1 className='s3-h1'>O NAS</h1>
-                <img className='s3-i1' src="/images/s3-i1.JPG" alt="Dwie osoby w jeansowych stylizacjach siedzące na białej skrzyni, prezentujące torby denimowe"  data-aos="fade-right"/>
-                <img className='s3-i2' src="/images/s3-i2.JPG"  alt="Kobieta w białej koszulce i ciemnych spodniach z dużą, czarną torbą denimową na ramieniu"  data-aos="fade-left"/>
+                <h2 className='s3-h1'>O NAS</h2>
+                <img  loading="lazy" className='s3-i1' src="/images/s3-i1.JPG" alt="Dwie osoby w jeansowych stylizacjach siedzące na białej skrzyni, prezentujące torby denimowe"  data-aos="fade-right"/>
+                <img loading="lazy" className='s3-i2' src="/images/s3-i2.JPG"  alt="Kobieta w białej koszulce i ciemnych spodniach z dużą, czarną torbą denimową na ramieniu"  data-aos="fade-left"/>
                 <div className='s3-container'>
                     <div className='s3-text'>
                         <h2 className='s3-h2' data-aos="zoom-in" >Nasza historia</h2>

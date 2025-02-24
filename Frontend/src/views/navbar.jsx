@@ -9,14 +9,16 @@ function Navbar() {
     return (
         
         <nav className="navbar">
-            <img src="/images/logo_scraps-01.svg" aos-data="zoom-out" className="navbar-logo" alt="logo"  onClick={ () => navigate("/")}/>
+            <a href="/" className="navbar-logo" data-aos="zoom-out" title="Strona Główna"><img src="/images/logo_scraps-01.svg" alt="logo" /></a>
 
-
-            <div className="navbar-right">
-                <div className="cart-container" onClick={() => {cart.length >= 1  ? navigate("/cart") : navigate("/empty")}}>
+            <div  className="navbar-right">
+                <a title="koszyk" className="cart-container" href={cart.length>=1 ? "/cart" : "/empty"} >
                     <p>1</p>
-                    <img src="/images/cart.svg" alt="cart" />
-                </div>
+                    <img src="/images/cart.svg" alt="Cart icon" />
+                </a>
+                <a href="/" title="Strona Główna" className="home-container">
+                    <img src="/images/homeSvg.svg" alt="Home icon" />
+                </a>
             </div>
         </nav>
     );
