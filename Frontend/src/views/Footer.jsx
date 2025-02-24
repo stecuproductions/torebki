@@ -2,8 +2,9 @@ import React, {useEffect} from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import "../styles/home.css"
-
+import { API_URL } from "../App";
 function Footer(){
+        const [statusMessage, setStatusMessage] = React.useState('');
         useEffect(() => {
             AOS.init({
                 duration: 1000,
@@ -11,6 +12,33 @@ function Footer(){
             });
         }, [])
 
+        const handleNewsletterSubmit = async (e) => {
+            e.preventDefault();
+            try{
+                const email = document.getElementById('email').value;
+                const result = await fetch(`${API_URL}/api/newsletter`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({email}),
+                })
+                if (result.status===201){
+                    document.getElementById('email').value='';
+                    setStatusMessage('Zapisano do newslettera');
+                }
+                else if(result.status===400){
+                    setStatusMessage('Email już istnieje w bazie');
+                }
+                else if(result.status===501){
+                    setStatusMessage('Błąd serwera podczas zapisu do newslettera');
+                }
+
+            }
+            catch(error){
+                console.error("Błąd zapisu do newslettera:", error);
+            }
+        }
     return(
         <footer className="s4">
                     <img src="/images/logo_scraps-01.png" alt="Logo Scraps" className="s4-logo" data-aos="fade-right"/>
@@ -49,9 +77,14 @@ function Footer(){
                             <h2 className='s4-newsletter-text-header'>Zapisz się do newslettera</h2>
                             <p>Podaj swój e-mail</p>
                         </div>
-                        <form action="" >
+                        <form onSubmit={(e)=>handleNewsletterSubmit(e)} >
                             <input type="email" name="email" id="email"  placeholder="" />
                             <button id="s4-newsletter-form-1-button" type="submit">SUBSKRYBUJ</button>
+                            {statusMessage && <p
+                            style={{
+                                color: statusMessage.includes('Błąd') ? 'red' : 'green',
+                            }}
+                            >{statusMessage}</p>}
                         </form>
                     </div>
 

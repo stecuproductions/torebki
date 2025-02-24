@@ -65,7 +65,7 @@ function Home({produkty}) {
            <section>
                 <div className='s1'>
                     <img src="/images/s1-i1.JPG"  alt="Para w jeansowych stylizacjach prezentująca torbę denimową na niebieskim tle"  className='s1-i1'/>
-                    <h1 className='s1-h1'>WITAJ!</h1>
+                    <h1 className='s1-h1'>TOREBKI DENIMOWE SCRAPS</h1>
                     <div className='s1-text'>
                         <p className="s1-text-p1">Witaj na naszej stronie</p>
                         <p className='s1-text-p2'>Odkryj unikalne torebki denimowe tworzone z pasją przez naszych projektantów</p>
