@@ -54,18 +54,18 @@ function Footer(){
                             <line x1="0" y1="1" x2="100" y2="1" stroke="black" strokeWidth="0.5" />
                         </svg>
                         <div className='s4-social-media-container'>
-                            <div className='s4-social-media'>
+                            <a className='s4-social-media' href="https://www.instagram.com/stecu03" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                                 {/* Wersja klienta */}
-                                <img src="/images/instagram2.png" alt="" />
+                                <img src="/images/instagram2.png" alt=""  />
                                 {/* <img src="/images/Instagram.svg" alt="Instagram" /> */}
                                 <p>@scraps123</p>
-                            </div>
-                            <div className='s4-social-media'>
+                            </a>
+                            <a className='s4-social-media' href="https://www.instagram.com/stecu03" target="_blank" rel="noopener noreferrer" aria-label="Tik Tok">
                                 {/* Wersja klienta */}
                                 <img src="/images/tik-tok-2.png" alt="Facebook" /> 
                                 {/* <img src="/images/TikTok.svg" alt="TikTok" /> */}
                                 <p>@scrapsTikTok</p>
-                            </div>
+                            </a>
                         </div>
                         <div className='s4-address'>
                             <p>ul. Zielona 5</p>

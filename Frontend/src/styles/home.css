@@ -55,6 +55,7 @@
     }
 
 
+
 body, html{
     overflow-x: hidden;
     width: 100%;
@@ -617,6 +618,9 @@ body{
     align-items: center;
     gap:5px;
     font-family: var(--secondary-font);
+}
+.s4 a{
+    color: white;
 }
 
 .s4-address{
