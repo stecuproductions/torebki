@@ -39,7 +39,7 @@ const storage = multer.diskStorage({
         cb(null, folderPath);
     },
     filename: (req, file, cb) => {
-        cb(null, `p${req.productId}_${Date.now()}.jpg`);
+        cb(null, `p${req.productId}_${Date.now()}.webp`);
     },
 });
 
