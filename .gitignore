@@ -1,0 +1,29 @@
+# node
+node_modules/
+dist/
+.env
+.env.local
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env.python
+
+# systemowe
+.DS_Store
+Thumbs.db
+
+# logi
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# testy
+coverage/
+
+# produkcyjne buildy
+build/

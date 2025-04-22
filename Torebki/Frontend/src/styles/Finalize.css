@@ -1,0 +1,243 @@
+.finalization{
+
+    color:white;
+    font-family: var(--secondary-font);
+    font-size:var(--standard-font-size-mobile);
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 30px;
+    padding-top: calc(var(--first-padding) - 40px) !important;
+    padding-bottom: 60px;
+
+}
+
+.finalization-summary{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:30px;
+
+}
+
+.finalization-summary-header{
+    width: 100%;
+    text-align: center;
+}
+.finalization-summary-header h1{
+    font-size:calc(var(--strandard-heading-font-size-mobile) - 10px);
+    font-family: var(--standard-font);
+    font-weight: 400;
+    margin-bottom: 0;
+    border-bottom: 1px solid white;;
+}
+
+.finalization-summary-products{
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    width: 100%;
+}
+
+.finalization-summary-product{
+    display:flex;
+    width: 100%;
+    justify-content: flex-start;
+    gap:20px;
+}
+.finalization-summary-product-image{
+    width: 30%;
+    min-width: 100px;
+    justify-self: center;
+    align-self: center;
+}
+.finalization-summary-product-image img{
+    width: 100%;
+    height: auto;
+}
+
+.finalization-summary-product-details{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+
+}
+.finalization-summary-product-details h2{
+    font-size:calc(var(--strandard-heading-font-size-mobile) - 20px);
+    font-family: var(--secondary-font);
+    font-weight: 400;
+    margin-bottom: 0;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.finalization-summary-total-price{
+    font-family: var(--standard-font);
+    font-size:calc(var(--strandard-heading-font-size-mobile) - 20px) !important;
+    color: white;
+    font-weight: 300 !important;
+}
+
+.finalization-summary-total-price{
+    font-family: var(--secondary-font);
+    font-weight: 500;
+    align-self: flex-start;
+    opacity: 0.8;
+    font-size: var(--strandard-font-size-mobile)
+}
+.finalization-form-main{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    gap:30px;
+}
+.finalization-form-header{
+    width: 100%;
+    text-align: center;
+}
+.finalization-form-header legend{
+    font-size:calc(var(--strandard-heading-font-size-mobile) - 10px);
+    font-family: var(--standard-font);
+    font-weight: 400;
+    margin-bottom: 0;
+    border-bottom: 1px solid white;;
+}
+
+.finalization-form{
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    width: 100%;
+}
+.finalization-form-container input, .finalization-form-container select{
+    border: 1px solid rgba(255, 255, 255, 0.268);
+    background-color: transparent;
+    color: white;
+    font-family: var(--secondary-font);
+    font-size: var(--standard-font-size-mobile);
+    padding-left: 5px;
+    height: 40px;
+}
+.finalization-form-container input:focus{
+    outline: none;
+}
+.finalization-form-address1, .finalization-form-address2{
+    display:flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.finalization-form-address1 input, .finalization-form-address2 input{
+    width: 100%;
+}
+
+.finalization-form-select{
+    background-color: black !important;
+}
+.finalization-form-button{
+    border: 0.5px solid white;
+    padding: 10px;
+    width: 190px;
+    font-family: var(--secondary-font);
+    font-size: var(--standard-font-size-mobile);
+    background-color: transparent;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+.finalization-form-button:hover{
+    background-color: white !important;
+    color: black !important;
+}
+.finalization-divider{
+    display: none;
+}
+
+@media (min-width:768px) {
+    .finalization{
+        font-size:var(--standard-font-size-talet);
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        
+        padding: 0px 10% 100px 10%;
+        gap:20px;
+
+
+    }
+    .finalization-summary{
+        align-self: flex-start;
+        flex:1;
+    }
+    .finalization-form-main{
+        align-self: flex-start;
+        flex:1;
+    }
+    .finalization-summary-product{
+        justify-content: flex-end;
+        align-content: flex-end;
+    }
+    .finalization-summary-product-details{
+        flex:1;
+        justify-self: flex-end;
+        justify-content: space-around;
+    }
+    .finalization-summary-product-image{
+        width: 120px;
+    }
+    .finalization-form-header legend, .finalization-summary-header h1{
+        border-bottom: none;
+    }
+    .finalization-divider{
+        display: block;
+        width: 1px;
+        height: 100%;
+        background-color: white;
+    }
+
+    .finalization input{
+        padding-left: 20px;
+    }
+}
+
+
+
+/* Dla Chrome, Edge, Safari */
+/* Dla Chrome, Edge, Safari */
+input:-webkit-autofill {
+    background-color: #222 !important; /* Ciemne tło */
+    color: white !important; /* Biały tekst */
+    -webkit-text-fill-color: white !important; /* Wymusza kolor tekstu */
+    transition: background-color 5000s ease-in-out 0s; /* Zapobiega miganiu */
+}
+
+/* Firefox */
+input:-moz-autofill {
+    background-color: #222 !important;
+    color: white !important;
+    -moz-text-fill-color: white !important;
+}
+
+select {
+    color: white; /* Tekst w select */
+    background-color: #222; /* Tło select */
+    appearance: none; /* Usuwa domyślny wygląd */
+    -webkit-appearance: none; /* Usuwa wygląd w Safari/Chrome */
+    -moz-appearance: none; /* Usuwa wygląd w Firefox */
+    padding-right: 20px; /* Dodatkowy padding dla strzałki */
+    
+}
+
+select:active{
+    outline: none;
+}
+select:focus{
+    outline: none;
+}
+
+.finalization-form-address{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

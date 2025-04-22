@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;400&family=Segoe+UI:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        .product-container {
+  width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.product-layout {
+  gap: 20px;
+  display: flex;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 50%;
+  margin-left: 0;
+}
+
+.product-content {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-title {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: #000;
+  margin-bottom: 30px;
+}
+
+.product-image-wrapper {
+  width: 400px;
+  height: 300px;
+  margin-bottom: 40px;
+  background-color: #d9d9d9;
+}
+
+.product-name {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+  color: #000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.product-description {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  color: #666;
+  text-align: center;
+  max-width: 509px;
+  margin-bottom: 30px;
+  line-height: 24px;
+}
+
+.product-price {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: #000;
+  margin-bottom: 40px;
+}
+
+.button-wrapper {
+  margin-bottom: 40px;
+}
+
+.cta-button {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 16px 40px;
+  cursor: pointer;
+  border: 1px solid #000;
+  background-color: #000;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 50%;
+  margin-left: 20px;
+}
+
+.logo-header {
+  width: 600px;
+  height: 160px;
+  position: relative;
+  margin-top: -50px;
+  background-color: #000;
+}
+
+.logo-placeholder {
+  width: 200px;
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 40px;
+  background-color: #d9d9d9;
+}
+
+.contact-footer {
+  width: 100%;
+  padding: 30px 0;
+  text-align: center;
+  background-color: #b9b2a8;
+}
+
+.footer-address,
+.footer-contact {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  color: #000;
+  line-height: 21px;
+}
+
+@media (max-width: 991px) {
+  .product-container {
+    width: 90%;
+  }
+
+  .product-layout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .product-info,
+  .logo-section {
+    width: 100%;
+  }
+
+  .product-image-wrapper {
+    width: 80%;
+    height: auto;
+  }
+
+  .logo-header {
+    width: 100%;
+  }
+
+  .product-description {
+    width: 90%;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .product-container {
+    width: 100%;
+  }
+
+  .product-title {
+    font-size: 36px;
+  }
+
+  .product-image-wrapper {
+    width: 90%;
+  }
+
+  .product-name {
+    font-size: 18px;
+  }
+
+  .product-description {
+    font-size: 14px;
+  }
+
+  .product-price {
+    font-size: 20px;
+  }
+
+  .cta-button {
+    width: 80%;
+    text-align: center;
+  }
+
+  .contact-footer {
+    padding: 20px 0;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <main class="product-container">
+        <div class="product-layout">
+            <section class="product-info">
+                <div class="product-content">
+                    <h1 class="product-title">Dostępne Teraz</h1>
+                    <div class="product-image-wrapper"></div>
+                    <h2 class="product-name">Ekskluzywna torebka denim czarno-szara</h2>
+                    <p class="product-description">
+                        Nasza najnowsza kolekcja łączy w sobie klasyczną elegancję z nowoczesnym designem.
+                        Każda torebka jest ręcznie wykonana z najwyższej jakości denimu, tworząc unikalny
+                        akcent do każdej stylizacji.
+                    </p>
+                    <p class="product-price">1000,00 zł</p>
+                    <div class="button-wrapper">
+                        <button class="cta-button">ZOBACZ W SKLEPIE</button>
+                    </div>
+                </div>
+            </section>
+            <section class="logo-section">
+                <header class="logo-header">
+                    <div class="logo-placeholder"></div>
+                </header>
+            </section>
+        </div>
+        <footer class="contact-footer">
+            <address class="footer-address">
+                ul. Zielona 5, 78-345 Warszawa
+            </address>
+            <p class="footer-contact">
+                +48 123-456-789 | info@scraps.com
+            </p>
+        </footer>
+    </main>
+</body>
+</html>
